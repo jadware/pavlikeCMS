@@ -144,7 +144,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\" />
+    <Folder Include="assets\css\" />
+    <Folder Include="assets\fonts\" />
+    <Folder Include="assets\img\" />
+    <Folder Include="assets\js\" />
+    <Folder Include="assets\less\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

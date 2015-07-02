@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{64E0588F-C9C7-4238-92A9-D883A984D889}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AdminTheme</RootNamespace>
+    <AssemblyName>AdminTheme</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="base_comp_animations.html" />
+    <Content Include="base_comp_calendar.html" />
+    <Content Include="base_comp_charts.html" />
+    <Content Include="base_comp_gallery_advanced.html" />
+    <Content Include="base_comp_gallery_simple.html" />
+    <Content Include="base_comp_images.html" />
+    <Content Include="base_comp_maps.html" />
+    <Content Include="base_comp_sliders.html" />
+    <Content Include="base_comp_syntax_highlighting.html" />
+    <Content Include="base_forms_editors.html" />
+    <Content Include="base_forms_elements.html" />
+    <Content Include="base_forms_pickers_more.html" />
+    <Content Include="base_forms_premade.html" />
+    <Content Include="base_forms_validation.html" />
+    <Content Include="base_forms_wizard.html" />
+    <Content Include="base_layouts_api.html" />
+    <Content Include="base_layouts_default.html" />
+    <Content Include="base_layouts_default_flipped.html" />
+    <Content Include="base_layouts_header_static.html" />
+    <Content Include="base_layouts_sidebar_hidden.html" />
+    <Content Include="base_layouts_sidebar_mini_hoverable.html" />
+    <Content Include="base_layouts_side_native_scrolling.html" />
+    <Content Include="base_layouts_side_overlay_hoverable.html" />
+    <Content Include="base_layouts_side_overlay_open.html" />
+    <Content Include="base_pages_400.html" />
+    <Content Include="base_pages_401.html" />
+    <Content Include="base_pages_403.html" />
+    <Content Include="base_pages_404.html" />
+    <Content Include="base_pages_500.html" />
+    <Content Include="base_pages_503.html" />
+    <Content Include="base_pages_blank.html" />
+    <Content Include="base_pages_coming_soon.html" />
+    <Content Include="base_pages_faq.html" />
+    <Content Include="base_pages_inbox.html" />
+    <Content Include="base_pages_invoice.html" />
+    <Content Include="base_pages_lock.html" />
+    <Content Include="base_pages_login.html" />
+    <Content Include="base_pages_profile.html" />
+    <Content Include="base_pages_register.html" />
+    <Content Include="base_pages_reminder.html" />
+    <Content Include="base_pages_search.html" />
+    <Content Include="base_tables_datatables.html" />
+    <Content Include="base_tables_pricing.html" />
+    <Content Include="base_tables_responsive.html" />
+    <Content Include="base_tables_styles.html" />
+    <Content Include="base_tables_tools.html" />
+    <Content Include="base_ui_activity.html" />
+    <Content Include="base_ui_blocks.html" />
+    <Content Include="base_ui_blocks_api.html" />
+    <Content Include="base_ui_blocks_draggable.html" />
+    <Content Include="base_ui_buttons.html" />
+    <Content Include="base_ui_color_themes.html" />
+    <Content Include="base_ui_grid.html" />
+    <Content Include="base_ui_icons.html" />
+    <Content Include="base_ui_modals_tooltips.html" />
+    <Content Include="base_ui_navigation.html" />
+    <Content Include="base_ui_tabs.html" />
+    <Content Include="base_ui_tiles.html" />
+    <Content Include="base_ui_timeline.html" />
+    <Content Include="base_ui_typography.html" />
+    <Content Include="base_ui_widgets.html" />
+    <Content Include="frontend_about.html" />
+    <Content Include="frontend_contact.html" />
+    <Content Include="frontend_features.html" />
+    <Content Include="frontend_home.html" />
+    <Content Include="frontend_login.html" />
+    <Content Include="frontend_pricing.html" />
+    <Content Include="frontend_search.html" />
+    <Content Include="frontend_signup.html" />
+    <Content Include="frontend_support.html" />
+    <Content Include="frontend_team.html" />
+    <Content Include="index.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>29542</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:29542/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pavlikeMVC", "pavlikeMVC\pavlikeMVC.csproj", "{F84D3CE5-E924-4C2E-AE8E-6F79ABBC6B2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PavlikeDATA", "PavlikeDATA\PavlikeDATA.csproj", "{41BBC6D9-51FA-49E6-850F-78E56722AD8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminTheme", "AdminTheme\AdminTheme.csproj", "{64E0588F-C9C7-4238-92A9-D883A984D889}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{F84D3CE5-E924-4C2E-AE8E-6F79ABBC6B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F84D3CE5-E924-4C2E-AE8E-6F79ABBC6B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F84D3CE5-E924-4C2E-AE8E-6F79ABBC6B2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41BBC6D9-51FA-49E6-850F-78E56722AD8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41BBC6D9-51FA-49E6-850F-78E56722AD8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41BBC6D9-51FA-49E6-850F-78E56722AD8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41BBC6D9-51FA-49E6-850F-78E56722AD8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64E0588F-C9C7-4238-92A9-D883A984D889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64E0588F-C9C7-4238-92A9-D883A984D889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64E0588F-C9C7-4238-92A9-D883A984D889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64E0588F-C9C7-4238-92A9-D883A984D889}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

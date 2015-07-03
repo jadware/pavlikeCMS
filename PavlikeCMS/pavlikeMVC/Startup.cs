@@ -10,5 +10,6 @@ namespace pavlikeMVC
         {
             ConfigureAuth(app);
         }
+        
     }
 }

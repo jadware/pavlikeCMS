@@ -179,7 +179,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\AdminPanel\assets\css\oneui.css" />
+    <Content Include="Content\AdminPanel\assets\css\pavlikeCMS.css" />
     <Content Include="Content\AdminPanel\assets\css\themes\amethyst.min.css" />
     <Content Include="Content\AdminPanel\assets\css\themes\city.min.css" />
     <Content Include="Content\AdminPanel\assets\css\themes\flat.min.css" />

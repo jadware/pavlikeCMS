@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace pavlikeMVC.Areas.AdminPanel.Controllers
 {
-    public class SayfalarController : Controller
+    public class PagesController : Controller
     {
-        // GET: AdminPanel/Sayfalar
+        // GET: AdminPanel/Pages
         public ActionResult Index()
         {
             return View();

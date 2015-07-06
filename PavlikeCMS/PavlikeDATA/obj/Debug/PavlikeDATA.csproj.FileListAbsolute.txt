@@ -24,3 +24,4 @@ C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\bin\Debug\Microsof
 C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\bin\Debug\Newtonsoft.Json.xml
 C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.dll
 C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.pdb
+C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.csprojResolveAssemblyReference.cache

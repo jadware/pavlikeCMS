@@ -16,10 +16,6 @@ namespace PavlikeDATA.Models
         public int AuthorId { get; set; }
         [ForeignKey("AuthorId")]
         public Author Author { get; set; }
-
-        /// <summary>
-        /// deneme change
-        /// </summary>
         public bool Active { get; set; }
         public virtual ICollection<AlbumMedia> AlbumMedia { get; set; }
 

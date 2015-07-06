@@ -168,6 +168,7 @@
     <Compile Include="Areas\AdminPanel\AdminPanelAreaRegistration.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\AdminPanelController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\ArticlesController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\AuthorsController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\FilesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\LoginController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\PagesController.cs" />
@@ -714,6 +715,7 @@
     <Content Include="Areas\AdminPanel\Views\Pages\Index.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Articles\Index.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Files\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Authors\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Icon.png" />
     <Content Include="Scripts\bootstrap.js" />

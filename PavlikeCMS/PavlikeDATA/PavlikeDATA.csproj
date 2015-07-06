@@ -90,6 +90,7 @@
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\ArticleType.cs" />
     <Compile Include="Models\Author.cs" />
+    <Compile Include="Models\Document.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />

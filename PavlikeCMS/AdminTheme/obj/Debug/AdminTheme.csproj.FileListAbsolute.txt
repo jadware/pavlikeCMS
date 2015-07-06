@@ -4,3 +4,9 @@ C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\AdminTheme\bin\AdminTheme.pdb
 C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\AdminTheme\obj\Debug\AdminTheme.csprojResolveAssemblyReference.cache
 C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\AdminTheme\obj\Debug\AdminTheme.dll
 C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\AdminTheme\obj\Debug\AdminTheme.pdb
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\AdminTheme\bin\AdminTheme.dll.config
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\AdminTheme\bin\AdminTheme.dll
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\AdminTheme\bin\AdminTheme.pdb
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\AdminTheme\obj\Debug\AdminTheme.csprojResolveAssemblyReference.cache
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\AdminTheme\obj\Debug\AdminTheme.dll
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\AdminTheme\obj\Debug\AdminTheme.pdb

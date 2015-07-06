@@ -85,19 +85,15 @@
                             </li>
                             <li class="nav-main-heading"><span class="sidebar-mini-hide">Ayarlar</span></li>
                             <li>
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-wrench"></i><span class="sidebar-mini-hide">Kullanıcılar</span></a>
+                                <a class="nav-submenu" data-toggle="nav-submenu" href="@Url.Action("Index", "Authors")"><i class="si si-wrench"></i><span class="sidebar-mini-hide">Kullanıcılar</span></a>
 
                             </li>
                             <li>
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-magic-wand"></i><span class="sidebar-mini-hide">Site </span></a>
+                                <a class="nav-submenu" data-toggle="nav-submenu" href="@Url.Action("Index", "Settings")"><i class="si si-magic-wand"></i><span class="sidebar-mini-hide">Site </span></a>
 
                             </li>
                             <li>
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Sosyal </span></a>
-
-                            </li>
-                            <li>
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">Genel </span></a>
+                                <a class="nav-submenu" data-toggle="nav-submenu" href="@Url.Action("Index", "SocialMedia")"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Sosyal </span></a>
 
                             </li>
 
@@ -125,31 +121,31 @@
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li class="dropdown-header">Profil</li>
                             <li>
-                                <a tabindex="-1" href="base_pages_inbox.html">
+                                <a tabindex="-1" href="@Url.Action("Inbox", "Author")">
                                     <i class="si si-envelope-open pull-right"></i>
                                     <span class="badge badge-primary pull-right">3</span>Gelen Kutusu
                                 </a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="base_pages_profile.html">
+                                <a tabindex="-1" href="@Url.Action("Profile", "Author")">
                                     <i class="si si-user pull-right"></i>
                                     <span class="badge badge-success pull-right">1</span>Profil
                                 </a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="javascript:void(0)">
+                                <a tabindex="-1" href="@Url.Action("Index", "Author")">
                                     <i class="si si-settings pull-right"></i>Ayarlar
                                 </a>
                             </li>
                             <li class="divider"></li>
                             <li class="dropdown-header">Eylemler</li>
                             <li>
-                                <a tabindex="-1" href="base_pages_lock.html">
+                                <a tabindex="-1" href="@Url.Action("Lock", "Author")">
                                     <i class="si si-lock pull-right"></i>Hesabı Kilitle
                                 </a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="base_pages_login.html">
+                                <a tabindex="-1" href="@Url.Action("Logout", "Author")">
                                     <i class="si si-logout pull-right"></i>Çıkış Yap
                                 </a>
                             </li>

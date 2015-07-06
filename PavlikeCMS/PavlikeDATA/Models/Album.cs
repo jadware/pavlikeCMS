@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace PavlikeDATA.Models
 {
-
-    public class Page
+    public class Album
     {
         public int Id { get; set; }
+
         public string Title { get; set; }
-        public string Url { get; set; }
 
         public int AuthorId { get; set; }
         [ForeignKey("AuthorId")]
         public Author Author { get; set; }
 
-        public virtual ICollection<Article> Articles { get; set; }
+
+        public bool Active { get; set; }
+        public virtual ICollection<AlbumMedia> AlbumMedia { get; set; }
 
     }
-
 }

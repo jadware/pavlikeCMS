@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace PavlikeDATA.Models
 {
-
-    public class Page
+    public class Slider
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Url { get; set; }
+        public string SubTitle { get; set; }
+        public string Detail { get; set; }
 
-        public int AuthorId { get; set; }
-        [ForeignKey("AuthorId")]
-        public Author Author { get; set; }
+        public int FileId { get; set; }
+        [ForeignKey("FileId")]
+        public File File { get; set; }
 
-        public virtual ICollection<Article> Articles { get; set; }
+        public bool Active { get; set; }
+
 
     }
-
 }

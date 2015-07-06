@@ -1,0 +1,4 @@
+*.config
+*.suo
+*.dll
+*.pdb

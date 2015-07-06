@@ -8,18 +8,23 @@ using System.Threading.Tasks;
 namespace PavlikeDATA.Models
 {
 
-    public class Page
+    public class Article
     {
         public int Id { get; set; }
+        public int PageId { get; set; }
+        [ForeignKey("PageId")]
+        public Page Page { get; set; }
         public string Title { get; set; }
-        public string Url { get; set; }
+        public string Content { get; set; }
 
         public int AuthorId { get; set; }
         [ForeignKey("AuthorId")]
         public Author Author { get; set; }
 
-        public virtual ICollection<Article> Articles { get; set; }
+        public int ArticleTypeId { get; set; }
+        [ForeignKey("ArticleTypeId")]
+        public ArticleType ArticleType { get; set; }
 
     }
-
 }
+

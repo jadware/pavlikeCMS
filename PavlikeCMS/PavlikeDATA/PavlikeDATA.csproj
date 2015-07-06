@@ -85,8 +85,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\AlbumMedia.cs" />
+    <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\ArticleType.cs" />
+    <Compile Include="Models\Author.cs" />
+    <Compile Include="Models\File.cs" />
+    <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Media.cs" />
     <Compile Include="Models\Page.cs" />
+    <Compile Include="Models\Seo.cs" />
+    <Compile Include="Models\Settings.cs" />
+    <Compile Include="Models\Slider.cs" />
+    <Compile Include="Models\Social.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

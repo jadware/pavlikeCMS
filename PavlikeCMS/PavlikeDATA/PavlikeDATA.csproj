@@ -85,9 +85,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201507021434139_InitialCreate.cs" />
-    <Compile Include="Migrations\201507021434139_InitialCreate.Designer.cs">
-      <DependentUpon>201507021434139_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201507071153259_InitialCreate.cs" />
+    <Compile Include="Migrations\201507071153259_InitialCreate.Designer.cs">
+      <DependentUpon>201507071153259_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
@@ -95,10 +95,12 @@
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\ArticleType.cs" />
     <Compile Include="Models\Author.cs" />
+    <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Initializer.cs" />
     <Compile Include="Models\Media.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Seo.cs" />
@@ -114,8 +116,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507021434139_InitialCreate.resx">
-      <DependentUpon>201507021434139_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507071153259_InitialCreate.resx">
+      <DependentUpon>201507071153259_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

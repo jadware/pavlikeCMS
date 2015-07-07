@@ -14,8 +14,8 @@ namespace PavlikeDATA.Models
         public string SubTitle { get; set; }
         public string Detail { get; set; }
 
-        public int FileId { get; set; }
-        [ForeignKey("FileId")]
+        //public int FileId { get; set; }
+        //[ForeignKey("FileId")]
         public File File { get; set; }
 
         public bool Active { get; set; }

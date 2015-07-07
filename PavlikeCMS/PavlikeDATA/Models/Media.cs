@@ -16,17 +16,17 @@ namespace PavlikeDATA.Models
         public string Description { get; set; }
         public DateTime DateTime { get; set; }
 
-        public int FileTypeId { get; set; }
-        [ForeignKey("FileTypeId")]
+        //public int FileTypeId { get; set; }
+        //[ForeignKey("FileTypeId")]
         public FileType FileType { get; set; }
 
 
-        public int AuthorId { get; set; }
-        [ForeignKey("AuthorId")]
+         //public int AuthorId { get; set; }
+        //[ForeignKey("AuthorId")]
         public Author Author { get; set; }
 
-        public int FileId { get; set; }
-        [ForeignKey("FileId")]
+        //public int FileId { get; set; }
+        //[ForeignKey("FileId")]
         public File File { get; set; }
 
         public bool Active { get; set; }

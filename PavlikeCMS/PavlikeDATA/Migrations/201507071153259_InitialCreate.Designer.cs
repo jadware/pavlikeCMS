@@ -13,7 +13,7 @@ namespace PavlikeDATA.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201507021434139_InitialCreate"; }
+            get { return "201507071153259_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

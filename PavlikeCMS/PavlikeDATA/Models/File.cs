@@ -20,12 +20,12 @@ namespace PavlikeDATA.Models
         public string Extension { get; set; }
         public DateTime UploadDateTime { get; set; }
 
-        public int FileTypeId { get; set; }
-        [ForeignKey("FileTypeId")]
+        //public int FileTypeId { get; set; }
+        //[ForeignKey("FileTypeId")]
         public FileType FileType { get; set; }
 
-        public int AuthorId { get; set; }
-        [ForeignKey("AuthorId")]
+         //public int AuthorId { get; set; }
+        //[ForeignKey("AuthorId")]
         public Author Author { get; set; }
 
         public virtual ICollection<Slider> Sliders { get; set; }

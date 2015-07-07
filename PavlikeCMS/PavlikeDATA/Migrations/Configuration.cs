@@ -1,3 +1,7 @@
+using Microsoft.AspNet.Identity.EntityFramework;
+using pavlikeMVC.Models;
+using PavlikeDATA.Models;
+
 namespace PavlikeDATA.Migrations
 {
     using System;
@@ -5,28 +9,31 @@ namespace PavlikeDATA.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<pavlikeMVC.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Context>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "pavlikeMVC.Models.ApplicationDbContext";
+            AutomaticMigrationsEnabled = true;
+            ContextKey = "PavlikeDATA.Models.Context";
         }
 
-        protected override void Seed(pavlikeMVC.Models.ApplicationDbContext context)
+        protected override void Seed(Context context)
         {
-            //  This method will be called after migrating to the latest version.
+            var usercontext = new ApplicationDbContext();
+            var role = new IdentityRole { Name = "SuperUser" };
+            usercontext.Roles.Add(role);
+            var user = new ApplicationUser { UserName = "admin", Email = "ugurhan@sapmazbilisim.com", PasswordHash = "ADWxsPpGnDe6gSoncPm+e8RImfLucwlb4xjM/sQDPIvo6FH+ha3xInNNdUmKrckNBQ==", Roles = { } };
+            usercontext.Users.Add(user);
+            var userRole = new IdentityUserRole() { RoleId = role.Id, UserId = user.Id };
+            user.Roles.Add(userRole);
+            usercontext.SaveChanges();
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+
+            var ct = new Models.Context();
+
+            ct.Authors.Add(new Author() { UserGuid = user.Id, Name = "SuperUser", EMail = user.Email, DateofBirth = DateTime.Now });
+            ct.SaveChanges();
+
         }
     }
 }

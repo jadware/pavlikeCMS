@@ -13,6 +13,11 @@ namespace PavlikeDATA.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Url { get; set; }
+        public string SeoUrl { get; set; }
+
+        public int ParentPageID { get; set; }
+        [ForeignKey("ParentPageID")]
+        public Page ParentPage { get; set; }
 
         public int AuthorId { get; set; }
         [ForeignKey("AuthorId")]

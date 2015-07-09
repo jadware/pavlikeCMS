@@ -11,14 +11,19 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using pavlikeMVC.Models;
+using pavlikeLibrary;
+using PavlikeDATA.Models;
 
 namespace pavlikeMVC
 {
+    
     public class EmailService : IIdentityMessageService
     {
+        readonly Context _dbContext = new Context();
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
+            var sets = _dbContext.MailSettings.FirstOrDefault();
+            MailerDeamon.Sender(sets.Host,sets.Port,sets.EmailAdress,sets.EmailPassword,message.Destination,message.Destination,message.Body,message.Subject,"Pavlike");
             return Task.FromResult(0);
         }
     }
@@ -40,7 +45,7 @@ namespace pavlikeMVC
         {
         }
 
-        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
+        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
             // Configure validation logic for usernames
@@ -81,7 +86,7 @@ namespace pavlikeMVC
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = 
+                manager.UserTokenProvider =
                     new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;

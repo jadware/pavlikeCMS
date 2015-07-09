@@ -85,10 +85,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201507071153259_InitialCreate.cs" />
-    <Compile Include="Migrations\201507071153259_InitialCreate.Designer.cs">
-      <DependentUpon>201507071153259_InitialCreate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\AlbumMedia.cs" />
@@ -101,6 +97,7 @@
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Initializer.cs" />
+    <Compile Include="Models\MailSettings.cs" />
     <Compile Include="Models\Media.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Seo.cs" />
@@ -114,11 +111,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507071153259_InitialCreate.resx">
-      <DependentUpon>201507071153259_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

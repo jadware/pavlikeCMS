@@ -112,3 +112,6 @@ C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\pavlikeMVC\bin\Microsoft.Owin.
 C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\pavlikeMVC\obj\Debug\pavlikeMVC.csprojResolveAssemblyReference.cache
 C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\pavlikeMVC\obj\Debug\pavlikeMVC.dll
 C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\pavlikeMVC\obj\Debug\pavlikeMVC.pdb
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\pavlikeMVC\bin\pavlikeLibrary.dll
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\pavlikeMVC\bin\pavlikeLibrary.pdb
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\pavlikeMVC\bin\Owin.Security.Providers.dll

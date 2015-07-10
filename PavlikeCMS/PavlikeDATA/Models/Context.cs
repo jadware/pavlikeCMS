@@ -10,12 +10,12 @@ using pavlikeMVC.Models;
 
 namespace PavlikeDATA.Models
 {
-    public class Context : DbContext 
+    public class Context : DbContext
     {
 
         public Context()
                 : base("pavlikeCMS_DBModel")
-            {
+        {
             Database.SetInitializer(new Initializer());
 
         }
@@ -40,6 +40,7 @@ namespace PavlikeDATA.Models
         public virtual DbSet<Settings> Settings { get; set; }
         public virtual DbSet<Slider> Sliders { get; set; }
         public virtual DbSet<Social> Socials { get; set; }
+        public virtual DbSet<MailSettings> MailSettings { get; set; }
         #endregion
     }
 

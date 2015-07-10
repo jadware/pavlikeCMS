@@ -11,8 +11,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using pavlikeMVC.Models;
-using pavlikeLibrary;
+
 using PavlikeDATA.Models;
+using pavlikeLibrary;
 
 namespace pavlikeMVC
 {

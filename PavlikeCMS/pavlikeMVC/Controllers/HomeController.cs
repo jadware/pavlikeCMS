@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PavlikeDATA.Repos;
 
 namespace pavlikeMVC.Controllers
 {
@@ -16,8 +17,9 @@ namespace pavlikeMVC.Controllers
 
         public ActionResult About()
         {
+            
             ViewBag.Message = "Your application description page.";
-
+            ViewBag.Albumler = new Albumler().GetAll();
             return View();
         }
 

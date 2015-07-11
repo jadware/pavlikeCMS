@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using pavlikeLibrary;
 using System.Web.Mvc;
 using PavlikeDATA.Repos;
 
@@ -17,7 +14,7 @@ namespace pavlikeMVC.Controllers
 
         public ActionResult About()
         {
-            
+
             ViewBag.Message = "Your application description page.";
             ViewBag.Albumler = new Albumler().GetAll();
             return View();

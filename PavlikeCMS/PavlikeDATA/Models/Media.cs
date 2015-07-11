@@ -31,7 +31,9 @@ namespace PavlikeDATA.Models
 
         public bool Active { get; set; }
 
-        public virtual ICollection<AlbumMedia> AlbumMedia { get; set; }
+        public virtual ICollection<AlbumMedia> AlbumMediaCollection { get; set; }
+        public virtual ICollection<Author> AuthorCollection { get; set; }
+
 
     }
 }

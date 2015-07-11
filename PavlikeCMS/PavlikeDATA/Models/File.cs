@@ -28,9 +28,11 @@ namespace PavlikeDATA.Models
         //[ForeignKey("AuthorId")]
         public Author Author { get; set; }
 
-        public virtual ICollection<Slider> Sliders { get; set; }
-        public virtual ICollection<Media> Media { get; set; }
-        public virtual ICollection<Document> Documents { get; set; }
+        public bool Active { get; set; }
+
+        public virtual ICollection<Slider> SliderCollection  { get; set; }
+        public virtual ICollection<Media> MediaCollection { get; set; }
+        public virtual ICollection<Document> DocumentCollection { get; set; }
 
 
     }

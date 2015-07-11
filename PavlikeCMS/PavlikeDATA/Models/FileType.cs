@@ -11,9 +11,9 @@ namespace PavlikeDATA.Models
         public int Id { get; set; }
         public string Title { get; set; }
 
-        public virtual ICollection<File> Files { get; set; }
-        public virtual ICollection<Media> Media { get; set; }
-        public virtual ICollection<Document> Documents { get; set; }
+        public virtual ICollection<File> FileCollection { get; set; }
+        public virtual ICollection<Media> MediaCollection { get; set; }
+        public virtual ICollection<Document> DocumentCollection { get; set; }
 
 
     }

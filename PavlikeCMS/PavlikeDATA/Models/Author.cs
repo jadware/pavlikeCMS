@@ -15,12 +15,13 @@ namespace PavlikeDATA.Models
         public string Surname { get; set; }
         public DateTime DateofBirth { get; set; }
         public string EMail { get; set; }
-
-        public virtual ICollection<Page> Pages { get; set; }
-        public virtual ICollection<Article> Articles { get; set; }
-        public virtual ICollection<File> Files { get; set; }
-        public virtual ICollection<Album> Albums { get; set; }
-        public virtual ICollection<Media> Media { get; set; }
+        public Media Picture { get; set; }
+        public bool Active { get; set; }
+        public virtual ICollection<Page> PageCollection { get; set; }
+        public virtual ICollection<Article> ArticleCollection { get; set; }
+        public virtual ICollection<File> FileCollection { get; set; }
+        public virtual ICollection<Album> AlbumCollection { get; set; }
+        public virtual ICollection<Media> MediaCollection { get; set; }
 
     }
 }

@@ -1,5 +1,4 @@
 using Microsoft.AspNet.Identity.EntityFramework;
-using pavlikeMVC.Models;
 using PavlikeDATA.Models;
 
 namespace PavlikeDATA.Migrations
@@ -22,14 +21,15 @@ namespace PavlikeDATA.Migrations
             var usercontext = new ApplicationDbContext();
             var role = new IdentityRole { Name = "SuperUser" };
             usercontext.Roles.Add(role);
-            var user = new ApplicationUser { UserName = "admin", Email = "ugurhan@sapmazbilisim.com", PasswordHash = "ADWxsPpGnDe6gSoncPm+e8RImfLucwlb4xjM/sQDPIvo6FH+ha3xInNNdUmKrckNBQ==", Roles = { } };
+            //Password is Sapmaz_2015
+            var user = new ApplicationUser { UserName = "admin", Email = "ugurhan@sapmazbilisim.com", PasswordHash = "AJYP53NfCtWZ0Z36CFoNysbcoTODg/8PHIzelTHJwWJOAHqY1IavgD9ZdG9u1UcdFQ==", Roles = { } };
             usercontext.Users.Add(user);
             var userRole = new IdentityUserRole() { RoleId = role.Id, UserId = user.Id };
             user.Roles.Add(userRole);
             usercontext.SaveChanges();
 
 
-            var ct = new Models.Context();
+            var ct = new Context();
 
             ct.Authors.Add(new Author() { UserGuid = user.Id, Name = "SuperUser", EMail = user.Email, DateofBirth = DateTime.Now });
             ct.SaveChanges();

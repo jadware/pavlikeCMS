@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
-using pavlikeMVC.Models;
 
 namespace PavlikeDATA.Models
 {
@@ -41,6 +40,8 @@ namespace PavlikeDATA.Models
         public virtual DbSet<Slider> Sliders { get; set; }
         public virtual DbSet<Social> Socials { get; set; }
         public virtual DbSet<MailSettings> MailSettings { get; set; }
+        public virtual DbSet<EntityLog> EntityLogs { get; set; }
+
         #endregion
     }
 

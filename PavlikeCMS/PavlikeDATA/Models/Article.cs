@@ -25,6 +25,8 @@ namespace PavlikeDATA.Models
         //[ForeignKey("ArticleTypeId")]
         public ArticleType ArticleType { get; set; }
 
+        public bool Active { get; set; }
+
     }
 }
 

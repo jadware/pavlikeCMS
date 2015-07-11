@@ -12,5 +12,6 @@ namespace PavlikeDATA.Models
         public int Title { get; set; }
         public string Description { get; set; }
         public string Keywords { get; set; }
+        public bool Active { get; set; }
     }
 }

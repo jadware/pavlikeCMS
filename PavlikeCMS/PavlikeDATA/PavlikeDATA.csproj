@@ -85,9 +85,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201507101325354_asf.cs" />
-    <Compile Include="Migrations\201507101325354_asf.Designer.cs">
-      <DependentUpon>201507101325354_asf.cs</DependentUpon>
+    <Compile Include="Migrations\201507111116080_ModelUpdate.cs" />
+    <Compile Include="Migrations\201507111116080_ModelUpdate.Designer.cs">
+      <DependentUpon>201507111116080_ModelUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507111141519_EntityLog.cs" />
+    <Compile Include="Migrations\201507111141519_EntityLog.Designer.cs">
+      <DependentUpon>201507111141519_EntityLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507111143107_EntitylogsUpdate.cs" />
+    <Compile Include="Migrations\201507111143107_EntitylogsUpdate.Designer.cs">
+      <DependentUpon>201507111143107_EntitylogsUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507111148241_EntitylogsUpdate2.cs" />
+    <Compile Include="Migrations\201507111148241_EntitylogsUpdate2.Designer.cs">
+      <DependentUpon>201507111148241_EntitylogsUpdate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507111155371_EntitylogsUpdate3.cs" />
+    <Compile Include="Migrations\201507111155371_EntitylogsUpdate3.Designer.cs">
+      <DependentUpon>201507111155371_EntitylogsUpdate3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
@@ -97,6 +113,7 @@
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\EntityLog.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -111,6 +128,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\AlbumRepository.cs" />
     <Compile Include="Repos\ArticleRepository.cs" />
+    <Compile Include="Repos\AuthorRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -119,9 +137,27 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507101325354_asf.resx">
-      <DependentUpon>201507101325354_asf.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507111116080_ModelUpdate.resx">
+      <DependentUpon>201507111116080_ModelUpdate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507111141519_EntityLog.resx">
+      <DependentUpon>201507111141519_EntityLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507111143107_EntitylogsUpdate.resx">
+      <DependentUpon>201507111143107_EntitylogsUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507111148241_EntitylogsUpdate2.resx">
+      <DependentUpon>201507111148241_EntitylogsUpdate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507111155371_EntitylogsUpdate3.resx">
+      <DependentUpon>201507111155371_EntitylogsUpdate3.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\pavlikeLibrary\pavlikeLibrary.csproj">
+      <Project>{c6ea8853-f835-4ef5-907b-c40abb5c3960}</Project>
+      <Name>pavlikeLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

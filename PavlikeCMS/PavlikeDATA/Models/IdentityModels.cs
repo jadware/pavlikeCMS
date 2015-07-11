@@ -1,11 +1,9 @@
-﻿using System.Data.Entity;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using PavlikeDATA.Models;
 
-namespace pavlikeMVC.Models
+namespace PavlikeDATA.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -18,18 +16,7 @@ namespace pavlikeMVC.Models
             return userIdentity;
         }
     }
-    //public class SimpleDbContext : DbContext
-    //{
-    //    public SimpleDbContext() :
-    //        base("pavlikeCMS_DBModel")
-    //    {
-    //    }
-    //    public static SimpleDbContext Create()
-    //    {
-    //        return new SimpleDbContext();
-    //    }
-    //    public DbSet<Album> Albums { get; set; }
-    //}
+ 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -43,18 +30,4 @@ namespace pavlikeMVC.Models
         }
         
     }
-    //public class ApplicationDbContext : DbContext
-    //{
-    //    public ApplicationDbContext()
-    //        : base("pavlikeCMS_DBModel")
-    //    {
-    //    }
-
-    //    public static ApplicationDbContext Create()
-    //    {
-    //        return new ApplicationDbContext();
-    //    }
-
-    //    public DbSet<Album> Albums { get; set; }
-    //}
 }

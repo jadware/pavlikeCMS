@@ -16,5 +16,6 @@ namespace PavlikeDATA.Models
         public string EmailPassword { get; set; }
         public string EmailDisplayName { get; set; }
         public bool EnableSsl { get; set; }
+        public  bool Active { get; set; }
     }
 }

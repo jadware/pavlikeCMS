@@ -53,3 +53,11 @@ C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeD
 C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.csproj.GenerateResource.Cache
 C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.dll
 C:\Users\hayre\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.pdb
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.Migrations.ModelUpdate.resources
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.csproj.GenerateResource.Cache
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\bin\Debug\pavlikeLibrary.dll
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\bin\Debug\pavlikeLibrary.pdb
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.Migrations.EntityLog.resources
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.Migrations.EntitylogsUpdate.resources
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.Migrations.EntitylogsUpdate2.resources
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.Migrations.EntitylogsUpdate3.resources

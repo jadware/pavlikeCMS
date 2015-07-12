@@ -182,7 +182,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\AdminPanel\AdminPanelAreaRegistration.cs" />
-    <Compile Include="Areas\AdminPanel\Controllers\AdminPanelController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\HomeController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\AuthorsController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\FilesController.cs" />
@@ -202,6 +202,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\AdminPanel\Views\Home\Index.cshtml" />
     <Content Include="Content\AdminPanel\assets\css\pavlikeCMS.css" />
     <Content Include="Content\AdminPanel\assets\css\themes\amethyst.min.css" />
     <Content Include="Content\AdminPanel\assets\css\themes\city.min.css" />

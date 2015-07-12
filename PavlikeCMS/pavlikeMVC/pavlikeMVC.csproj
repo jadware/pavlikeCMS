@@ -680,7 +680,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Areas\AdminPanel\Views\web.config" />
     <Content Include="Areas\AdminPanel\Views\Shared\_AdminPanelLayout.cshtml" />
-    <Content Include="Areas\AdminPanel\Views\Home\Index.cshtml" />
     <Content Include="Content\AdminPanel\assets\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\AdminPanel\assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\AdminPanel\assets\fonts\fontawesome-webfont.woff" />

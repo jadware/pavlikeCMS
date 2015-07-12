@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace pavlikeMVC.Areas.AdminPanel.Controllers
 {
-    public class AdminPanelController : Controller
+    public class HomeController : Controller
     {
         // GET: AdminPanel/AdminPanel
         public ActionResult Index()

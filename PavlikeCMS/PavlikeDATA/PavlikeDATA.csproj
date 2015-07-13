@@ -105,6 +105,10 @@
     <Compile Include="Migrations\201507111155371_EntitylogsUpdate3.Designer.cs">
       <DependentUpon>201507111155371_EntitylogsUpdate3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507131150528_PageUpdate.cs" />
+    <Compile Include="Migrations\201507131150528_PageUpdate.Designer.cs">
+      <DependentUpon>201507131150528_PageUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\AlbumMedia.cs" />
@@ -129,6 +133,7 @@
     <Compile Include="Repos\AlbumRepository.cs" />
     <Compile Include="Repos\ArticleRepository.cs" />
     <Compile Include="Repos\AuthorRepository.cs" />
+    <Compile Include="Repos\PageRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -151,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507111155371_EntitylogsUpdate3.resx">
       <DependentUpon>201507111155371_EntitylogsUpdate3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507131150528_PageUpdate.resx">
+      <DependentUpon>201507131150528_PageUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

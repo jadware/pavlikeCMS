@@ -61,3 +61,4 @@ C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeD
 C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.Migrations.EntitylogsUpdate.resources
 C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.Migrations.EntitylogsUpdate2.resources
 C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.Migrations.EntitylogsUpdate3.resources
+C:\Users\ugurh\Source\Repos\pavlikeCMS\PavlikeCMS\PavlikeDATA\obj\Debug\PavlikeDATA.Migrations.PageUpdate.resources

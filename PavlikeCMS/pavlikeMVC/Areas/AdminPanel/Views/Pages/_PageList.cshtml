@@ -1,0 +1,33 @@
+﻿@model IEnumerable<PavlikeDATA.Models.Page>
+
+<table class="table table-striped table-borderless table-header-bg">
+    <thead>
+        <tr>
+            <th class="text-center" style="width: 50px;">#</th>
+            <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th>@Html.DisplayNameFor(model => model.RootPage.Title)</th>
+            <th class="hidden-xs" style="width: 15%;">@Html.DisplayNameFor(model => model.Published)</th>
+            <th class="hidden-xs" style="width: 15%;">@Html.DisplayNameFor(model => model.Url)</th>
+            <th class="text-center" style="width: 100px;">EYLEMLER</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">1</td>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.RootPage.Title)</td>
+                <td class="hidden-xs">
+                    <span class="label label-success">@Html.DisplayFor(modelItem => item.Published)</span>
+                </td>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="" data-original-title="Sil"><i class="fa fa-times"></i></button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

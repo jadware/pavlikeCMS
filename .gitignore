@@ -205,3 +205,5 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+PavlikeCMS/PavlikeDATA/obj/Debug/PavlikeDATA.csproj.GenerateResource.Cache
+PavlikeCMS/PavlikeDATA/bin/Debug/PavlikeDATA.pdb

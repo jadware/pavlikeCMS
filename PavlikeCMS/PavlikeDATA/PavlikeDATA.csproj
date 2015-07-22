@@ -85,30 +85,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201507111116080_ModelUpdate.cs" />
-    <Compile Include="Migrations\201507111116080_ModelUpdate.Designer.cs">
-      <DependentUpon>201507111116080_ModelUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507111141519_EntityLog.cs" />
-    <Compile Include="Migrations\201507111141519_EntityLog.Designer.cs">
-      <DependentUpon>201507111141519_EntityLog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507111143107_EntitylogsUpdate.cs" />
-    <Compile Include="Migrations\201507111143107_EntitylogsUpdate.Designer.cs">
-      <DependentUpon>201507111143107_EntitylogsUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507111148241_EntitylogsUpdate2.cs" />
-    <Compile Include="Migrations\201507111148241_EntitylogsUpdate2.Designer.cs">
-      <DependentUpon>201507111148241_EntitylogsUpdate2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507111155371_EntitylogsUpdate3.cs" />
-    <Compile Include="Migrations\201507111155371_EntitylogsUpdate3.Designer.cs">
-      <DependentUpon>201507111155371_EntitylogsUpdate3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507131150528_PageUpdate.cs" />
-    <Compile Include="Migrations\201507131150528_PageUpdate.Designer.cs">
-      <DependentUpon>201507131150528_PageUpdate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\AlbumMedia.cs" />
@@ -140,26 +116,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507111116080_ModelUpdate.resx">
-      <DependentUpon>201507111116080_ModelUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507111141519_EntityLog.resx">
-      <DependentUpon>201507111141519_EntityLog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507111143107_EntitylogsUpdate.resx">
-      <DependentUpon>201507111143107_EntitylogsUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507111148241_EntitylogsUpdate2.resx">
-      <DependentUpon>201507111148241_EntitylogsUpdate2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507111155371_EntitylogsUpdate3.resx">
-      <DependentUpon>201507111155371_EntitylogsUpdate3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507131150528_PageUpdate.resx">
-      <DependentUpon>201507131150528_PageUpdate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\pavlikeLibrary\pavlikeLibrary.csproj">

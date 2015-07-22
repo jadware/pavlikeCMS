@@ -13,5 +13,9 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
         {
             return View();
         }
+        public PartialViewResult _Toastr()
+        {
+            return PartialView();
+        }
     }
 }

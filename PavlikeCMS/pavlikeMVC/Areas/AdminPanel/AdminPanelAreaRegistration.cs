@@ -15,8 +15,8 @@ namespace pavlikeMVC.Areas.AdminPanel
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-               "Admin_default",
-               "Admin/{controller}/{action}/{id}",
+               "AdminPanel_default",
+               "AdminPanel/{controller}/{action}/{id}",
                new { action = "Index", id = UrlParameter.Optional },
                new[] { "pavlikeMVC.Areas.AdminPanel.Controllers" }
            );

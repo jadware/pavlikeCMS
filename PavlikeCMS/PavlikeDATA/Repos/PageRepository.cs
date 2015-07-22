@@ -20,7 +20,7 @@ namespace PavlikeDATA.Repos
             _entityLog.Method = MethodBase.GetCurrentMethod().Name;
             _db.EntityLogs.Add(_entityLog);
             _db.SaveChanges();
-            return _db.Pages.ToList();
+            return _db.Pages.Where(c => c.Active).Include(c => c.Author).Include(c => c.RootPage).OrderBy(c => c.PageOrder).ToList();
 
         }
 
@@ -28,6 +28,7 @@ namespace PavlikeDATA.Repos
         {
             try
             {
+                page.Active = true;
                 _db.Pages.Add(page);
                 _entityLog.EntityResult = Enum.EntityResult.Success;
                 return Enum.EntityResult.Success;
@@ -83,5 +84,44 @@ namespace PavlikeDATA.Repos
                 _db.SaveChanges();
             }
         }
+
+        public Enum.EntityResult Disable(Page disable)
+        {
+            disable.Active = false;
+            return Update(disable);
+
+        }
+
+        public Enum.EntityResult Delete(Page delete)
+        {
+            try
+            {
+                _db.Pages.Remove(delete);
+                _entityLog.EntityResult = Enum.EntityResult.Success;
+                return Enum.EntityResult.Success;
+            }
+            catch (Exception e)
+            {
+                _entityLog.ErrorId = e.HResult;
+                _entityLog.Detail = e.Message;
+                _entityLog.EntityResult = Enum.EntityResult.Failed;
+
+                return Enum.EntityResult.Failed;
+            }
+            finally
+            {
+                _entityLog.Job = Enum.EntityJob.Delete;
+                _entityLog.Method = MethodBase.GetCurrentMethod().Name;
+                _db.EntityLogs.Add(_entityLog);
+                _db.SaveChanges();
+            }
+
+        }
+        public Enum.EntityResult FindbyIdandDisable(int id)
+        {
+            var disableitem = FindbyId(id);
+            return disableitem == null ? Enum.EntityResult.Failed : Disable(disableitem);
+        }
+
     }
 }

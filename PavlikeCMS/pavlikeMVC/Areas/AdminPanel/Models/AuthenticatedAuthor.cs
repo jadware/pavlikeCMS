@@ -13,6 +13,7 @@ namespace pavlikeMVC.Areas.AdminPanel.Models
         private readonly Context _db = new Context();
         readonly string _userid = HttpContext.Current.User.Identity.GetUserId();
         public Author Author;
+        public int Id;
         public string Picture;
         public string Name;
         public string Surname;
@@ -29,7 +30,7 @@ namespace pavlikeMVC.Areas.AdminPanel.Models
             {
                 Picture = null;
             }
-
+            Id = Author.Id;
             Name = Author.Name;
             Surname = Author.Surname;
         }

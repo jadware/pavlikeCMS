@@ -58,6 +58,7 @@
             replace = replaceAttrValue ? $.parseJSON(replaceAttrValue) !== false : null;
 
         container.removeClass("field-validation-valid").addClass("field-validation-error");
+      
         error.data("unobtrusiveContainer", container);
 
         if (replace) {

@@ -31,7 +31,7 @@
     <!-- END Icons -->
     <!-- Stylesheets -->
     <!-- Web fonts -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+    @*<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">*@
 
     <!-- Page JS Plugins CSS -->
     <link rel="stylesheet" href="/Content/AdminPanel/assets/js/plugins/slick/slick.min.css">
@@ -39,8 +39,11 @@
 
     <!-- CSS framework -->
     <link rel="stylesheet" id="css-main" href="/Content/AdminPanel/assets/css/pavlikeCMS.css">
-
+    @Styles.Render("~/Content/toastr")
     <!-- END Stylesheets -->
+
+    <script src="/Content/AdminPanel/assets/js/core/jquery.min.js"></script>
+    <script src="/Content/AdminPanel/assets/js/core/bootstrap.min.js"></script>
 </head>
 <body>
     <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
@@ -112,7 +115,7 @@
             <ul class="nav-header pull-right">
                 <li>
                     @Html.Partial("_LoginPartial")
-                
+
                 </li>
 
             </ul>
@@ -156,7 +159,7 @@
                 <div class="push-50-t push-15">
                     <h1 class="h2 text-white animated zoomIn">Kontrol Paneli [Viewbag.Title]</h1>
                 </div>
-            </div>
+            </div>@Html.Partial("_BootstrapModal")
             @RenderBody()
 
             <!-- END Page Header -->
@@ -170,11 +173,18 @@
                 <a class="font-w600 text-city" href="javascript:void(0)" target="_blank">pavlikeCMS 1.0</a> &copy; <span class="js-year-copy"></span>
             </div>
         </footer>
+        <div id="alertDiv">
+
+        </div>
         <!-- END Footer -->
     </div>
     <!-- Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
-    <script src="/Content/AdminPanel/assets/js/core/jquery.min.js"></script>
+
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="/Content/AdminPanel/assets/js/core/bootstrap.min.js"></script>
+
     <script src="/Content/AdminPanel/assets/js/core/jquery.slimscroll.min.js"></script>
     <script src="/Content/AdminPanel/assets/js/core/jquery.scrollLock.min.js"></script>
     <script src="/Content/AdminPanel/assets/js/core/jquery.appear.min.js"></script>
@@ -188,15 +198,28 @@
     <script src="/Content/AdminPanel/assets/js/plugins/chartjs/Chart.min.js"></script>
 
     <!-- Page JS Code -->
-    <script src="/Content/AdminPanel/assets/js/pages/base_pages_dashboard.js"></script>
-<script>
-    $(function() {
-        // Init page helpers (Slick Slider plugin)
-        App.initHelpers('slick');
-    });
-</script>
+    @*<script src="/Content/AdminPanel/assets/js/pages/base_pages_dashboard.js"></script>*@
+    @Scripts.Render("~/bundles/toastr")
+    <script src="~/Scripts/pavlikeLibrary.js"></script>
+
+    <script>
+        $(function () {
+            // Init page helpers (Slick Slider plugin)
+            App.initHelpers('slick');
+        });
+        $(document).ajaxStop(function () {
+
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", "@Url.Action("_Toastr","Home")", false);
+            xmlHttp.send(null);
+
+            $("#alertDiv").html(null);
+            $("#alertDiv").html(xmlHttp.responseText);
+        });
+
+    </script>
 
 
-    @Html.Partial("_BootstrapModal")
+
 </body>
 </html>

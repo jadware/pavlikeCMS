@@ -21,54 +21,72 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
         [HttpGet]
         public PartialViewResult _Create()
         {
+            ViewBag.RootPageId = new SelectList(new PageRepository().GetAll(), "Id", "Title");
             return PartialView(new Page());
         }
 
         [HttpPost]
-        public ActionResult _Create(Page model)
+        public bool _Create(Page model)
         {
             if (!ModelState.IsValid)
             {
                 this.AddToastMessage("", "Alanları kontrol Ediniz", Enum.ToastrType.Warning);
-                return PartialView(model);
+
+                return false;
             }
-            model.Author = new AuthenticatedAuthor().Author;
+            model.AuthorId = new AuthenticatedAuthor().Id;
             var res = new PageRepository().Create(model);
             if (res == Enum.EntityResult.Failed)
             {
                 this.AddToastMessage("", "Sayfa oluşturulurken hata", Enum.ToastrType.Error);
-                return PartialView(model);
+                return false;
             }
 
             this.AddToastMessage("", "Kayıt Başarılı", Enum.ToastrType.Success);
-            return RedirectToActionPermanent("Index");
+            return true;
 
         }
 
         [HttpGet]
         public PartialViewResult _Edit(int id)
         {
-            return PartialView("_Create", new PageRepository().FindbyId(id));
+            var item = new PageRepository().FindbyId(id);
+            ViewBag.RootPageId = new SelectList(new PageRepository().GetAll(), "Id", "Title", item.RootPageId);
+            return PartialView("_Create", item);
         }
 
         [HttpPost]
-        public ActionResult _Edit(Page modified)
+        public bool _Edit(Page modified)
         {
             if (!ModelState.IsValid)
             {
                 this.AddToastMessage("", "Alanları kontrol Ediniz", Enum.ToastrType.Warning);
-                return PartialView("_Create", modified);
+                return false;
             }
             var res = new PageRepository().Update(modified);
             if (res == Enum.EntityResult.Failed)
             {
                 this.AddToastMessage("", "Sayfa güncellenirken hata", Enum.ToastrType.Error);
-                return PartialView("_Create", modified);
+                return false;
             }
 
             this.AddToastMessage("", "Kayıt Başarılı", Enum.ToastrType.Success);
-            return RedirectToActionPermanent("Index");
+            return true;
         }
+
+        [HttpPost]
+        public bool _Delete(int id)
+        {
+            var res = new PageRepository().FindbyIdandDisable(id);
+            if (res == Enum.EntityResult.Failed)
+            {
+                this.AddToastMessage("", "Sayfa silinirken hata", Enum.ToastrType.Error);
+                return false;
+            }
+            this.AddToastMessage("", "Sayfa silme başarılı", Enum.ToastrType.Success);
+            return true;
+        }
+
 
         [HttpGet]
         public ActionResult Preview(int id)

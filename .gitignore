@@ -207,3 +207,7 @@ FakesAssemblies/
 *.opt
 PavlikeCMS/PavlikeDATA/obj/Debug/PavlikeDATA.csproj.GenerateResource.Cache
 PavlikeCMS/PavlikeDATA/bin/Debug/PavlikeDATA.pdb
+*.suo
+PavlikeCMS/AdminTheme/bin/AdminTheme.dll
+PavlikeCMS/PavlikeDATA/bin/Debug/PavlikeDATA.dll
+PavlikeCMS/PavlikeDATA/obj/Debug/PavlikeDATA.csproj.FileListAbsolute.txt

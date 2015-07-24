@@ -743,6 +743,8 @@
     <Content Include="Areas\AdminPanel\Views\Shared\_BootstrapModal.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Pages\_Create.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Home\_Toastr.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Articles\_Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Articles\_List.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Icon.png" />
     <Content Include="Scripts\base_forms_validation.js" />

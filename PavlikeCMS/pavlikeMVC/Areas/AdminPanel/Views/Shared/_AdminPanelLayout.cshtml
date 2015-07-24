@@ -37,6 +37,8 @@
     <link rel="stylesheet" href="/Content/AdminPanel/assets/js/plugins/slick/slick.min.css">
     <link rel="stylesheet" href="/Content/AdminPanel/assets/js/plugins/slick/slick-theme.min.css">
 
+    <link href="~/Content/AdminPanel/assets/js/plugins/summernote/summernote.min.css" rel="stylesheet" />
+    <link href="~/Content/AdminPanel/assets/js/plugins/summernote/summernote-bs3.min.css" rel="stylesheet" />
     <!-- CSS framework -->
     <link rel="stylesheet" id="css-main" href="/Content/AdminPanel/assets/css/pavlikeCMS.css">
     @Styles.Render("~/Content/toastr")
@@ -196,16 +198,20 @@
     <!-- Page Plugins -->
     <script src="/Content/AdminPanel/assets/js/plugins/slick/slick.min.js"></script>
     <script src="/Content/AdminPanel/assets/js/plugins/chartjs/Chart.min.js"></script>
+    <!-- Editors -->
+    <script src="~/Content/AdminPanel/assets/js/plugins/summernote/summernote.min.js"></script>
+    <script src="~/Content/AdminPanel/assets/js/plugins/ckeditor/ckeditor.js"></script>
 
-    <!-- Page JS Code -->
-    @*<script src="/Content/AdminPanel/assets/js/pages/base_pages_dashboard.js"></script>*@
+
+
+
     @Scripts.Render("~/bundles/toastr")
     <script src="~/Scripts/pavlikeLibrary.js"></script>
 
     <script>
         $(function () {
-            // Init page helpers (Slick Slider plugin)
-            App.initHelpers('slick');
+        
+            App.initHelpers([ 'ckeditor', 'slick']);
         });
         $(document).ajaxStop(function () {
 

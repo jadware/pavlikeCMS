@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace PavlikeDATA.Models
 {
@@ -11,20 +7,28 @@ namespace PavlikeDATA.Models
     public class Article
     {
         public int Id { get; set; }
-        //public int PageId { get; set; }
-        //[ForeignKey("PageId")]
-        public Page Page { get; set; }
+
+        [Required(ErrorMessage = "*Gerekli Alan")]
+        [Display(Name = "Başlık")]
         public string Title { get; set; }
+
+        [Display(Name = "İçerik")]
         public string Content { get; set; }
 
-         //public int AuthorId { get; set; }
-        //[ForeignKey("AuthorId")]
+        [Display(Name = "Yayınlanacak Sayfa")]
+        [Required(ErrorMessage = "*Gerekli Alan")]
+        public int PageId { get; set; }
+        public Page Page { get; set; }
+
+        public int AuthorId { get; set; }
         public Author Author { get; set; }
 
-        //public int ArticleTypeId { get; set; }
-        //[ForeignKey("ArticleTypeId")]
+        [Display(Name = "Yazı Türü")]
+        [Required(ErrorMessage = "*Gerekli Alan")]
+        public int ArticleTypeId { get; set; }
         public ArticleType ArticleType { get; set; }
 
+        [DefaultValue(true)]
         public bool Active { get; set; }
 
     }

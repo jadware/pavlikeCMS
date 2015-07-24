@@ -1,0 +1,117 @@
+﻿@model IEnumerable<PavlikeDATA.Models.Article>
+
+<table class="table table-striped table-borderless table-header-bg">
+    <thead>
+        <tr>
+
+            <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th class="hidden-xs" style="width: 15%;">@Html.DisplayNameFor(model => model.Author.Name)</th>
+            <th class="hidden-xs" style="width: 15%;">@Html.DisplayNameFor(model => model.Page.Title)</th>
+            <th class="hidden-xs" style="width: 15%;">@Html.DisplayNameFor(model => model.ArticleType.Title)</th>
+            <th class="text-center" style="width: 100px;">EYLEMLER</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Author.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Page.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.ArticleType.Title)</td>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <a item-title="@item.Title" item-id="@item.Id" class="btn btn-xs btn-default" href="@Url.Action("_Edit",new {item.Id})" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                        <button item-title="@item.Title" item-id="@item.Id" class="btn btn-xs btn-default deleteButton" type="button" data-toggle="tooltip" title="" data-original-title="Sil"><i class="fa fa-times"></i></button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+
+
+    //Modal init
+    var modalDiv = $("#bootstrap-Modal");
+    var modalContent = modalDiv.find(".block-content");
+    var modalTitle = modalDiv.find(".block-title");
+    var modalConfirm = modalDiv.find(".btn-primary");
+
+    // New page action
+    $("#newButton").on("click", function () {
+
+        $.get("@Url.Action("_Create")", function (data) {
+            modalDiv.modal("show");
+            modalContent.html(data);
+            modalTitle.html("Yeni Makale Ekle");
+            modalConfirm.attr("link", "@Url.Action("_Create")");
+            modalConfirm.html("Ekle");
+
+
+        });
+    });
+
+
+    //edit page action
+    $(".editButton").on("click", function () {
+        var item = $(this);
+        $.get("@Url.Action("_Edit")", { id: item.attr("item-id") }, function (data) {
+
+            modalDiv.modal("show");
+            modalContent.html(data);
+            modalTitle.html("Makaleyi Düzenle - " + item.attr("item-title"));
+            modalConfirm.attr("link", "@Url.Action("_Edit")");
+            modalConfirm.html("Kaydet");
+
+        });
+
+    });
+
+
+
+    //delete page action
+    $(".deleteButton").on("click", function () {
+        var item = $(this);
+        modalDiv.modal("show");
+        modalContent.html("Makaleyi silmek istediğinize emin misiniz ?");
+        modalTitle.html("Makaleyi Sil - " + item.attr("item-title") + " !");
+        modalConfirm.attr("link", "@Url.Action("_Delete")" + "?id=" + item.attr("item-id"));
+        modalConfirm.html("Sil");
+
+    });
+
+
+    //Confirm button action
+    modalDiv.find(".btn-primary").on("click", function () {
+        if (!$('#modelForm').length) {
+            $.post(modalConfirm.attr("link"), function (data) {
+                if (data === "True") {
+                    modalDiv.modal("hide");
+                    refreshList("@Url.Action("_List")", "articleList");
+                }
+            });
+        } else {
+            if ($('#modelForm').valid()) {
+                $.post(modalConfirm.attr("link"), $("#modelForm").serializeArray(), function (data) {
+                    if (data === "True") {
+                        modalDiv.modal("hide");
+                        refreshList("@Url.Action("_List")", "articleList");
+                    }
+                });
+
+            } else {
+                toastr.warning("Alanları Kontrol Ediniz!");
+            }
+        }
+
+    });
+
+    // cancel button action
+    modalDiv.find(".btn-default").on("click", function () { modalDiv.modal("hide") });
+
+
+
+</script>

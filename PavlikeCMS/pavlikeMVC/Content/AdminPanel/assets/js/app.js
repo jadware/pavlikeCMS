@@ -795,10 +795,10 @@ var App = function() {
         CKEDITOR.disableAutoInline = true;
 
         // Init inline text editor
-        CKEDITOR.inline('js-ckeditor-inline');
+        //CKEDITOR.inline('js-ckeditor-inline');
 
         // Init full text editor
-        CKEDITOR.replace('js-ckeditor');
+        //CKEDITOR.replace('js-ckeditor');
     };
 
     /*

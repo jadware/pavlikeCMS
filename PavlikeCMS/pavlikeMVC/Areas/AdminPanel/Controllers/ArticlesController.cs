@@ -1,17 +1,97 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using pavlikeLibrary;
+using pavlikeMVC.Areas.AdminPanel.Models;
+using PavlikeDATA.Models;
+using PavlikeDATA.Repos;
 
 namespace pavlikeMVC.Areas.AdminPanel.Controllers
 {
     public class ArticlesController : Controller
     {
-        // GET: AdminPanel/Articles
         public ActionResult Index()
         {
             return View();
         }
+
+        public PartialViewResult _List()
+        {
+            return PartialView(new ArticleRepository().GetAll());
+        }
+
+        [HttpGet]
+        public PartialViewResult _Create()
+        {
+            ViewBag.ArticleTypeId = new SelectList(new ArticleRepository().Types(), "Id", "Title");
+            ViewBag.PageId = new SelectList(new PageRepository().GetAll(), "Id", "Title");
+
+            return PartialView(new Article());
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult _Create(Article model)
+        {
+            if (!ModelState.IsValid)
+            {
+                this.AddToastMessage("", "Alanları kontrol Ediniz", Enum.ToastrType.Warning);
+
+                return View(model);
+            }
+            model.AuthorId = new AuthenticatedAuthor().Id;
+            var res = new ArticleRepository().Create(model);
+            if (res == Enum.EntityResult.Failed)
+            {
+                this.AddToastMessage("", "Makale oluşturulurken hata", Enum.ToastrType.Error);
+                return View(model);
+            }
+
+            this.AddToastMessage("", "Kayıt Başarılı", Enum.ToastrType.Success);
+            return RedirectToAction("Index");
+
+        }
+
+        [HttpGet]
+        public PartialViewResult _Edit(int id)
+        {
+            var item = new ArticleRepository().FindbyId(id);
+            ViewBag.PageId = new SelectList(new PageRepository().GetAll(), "Id", "Title");
+            ViewBag.ArticleTypeId = new SelectList(new ArticleRepository().GetAll(), "Id", "Title", item.ArticleTypeId);
+            return PartialView("_Create", item);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult _Edit(Article modified)
+        {
+            if (!ModelState.IsValid)
+            {
+                this.AddToastMessage("", "Alanları kontrol Ediniz", Enum.ToastrType.Warning);
+                return View("_Create",modified);
+            }
+            var res = new ArticleRepository().Update(modified);
+            if (res == Enum.EntityResult.Failed)
+            {
+                this.AddToastMessage("", "Makale güncellenirken hata", Enum.ToastrType.Error);
+                return View("_Create",modified);
+            }
+
+            this.AddToastMessage("", "Kayıt Başarılı", Enum.ToastrType.Success);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public bool _Delete(int id)
+        {
+            var res = new ArticleRepository().FindbyIdandDisable(id);
+            if (res == Enum.EntityResult.Failed)
+            {
+                this.AddToastMessage("", "Makale silinirken hata", Enum.ToastrType.Error);
+                return false;
+            }
+            this.AddToastMessage("", "Makale silme başarılı", Enum.ToastrType.Success);
+            return true;
+        }
+
+
     }
 }

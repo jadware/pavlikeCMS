@@ -16,7 +16,7 @@ namespace pavlikeMVC.Controllers
         {
 
             ViewBag.Message = "Your application description page.";
-            ViewBag.Albumler = new Albumler().GetAll();
+       
             return View();
         }
 

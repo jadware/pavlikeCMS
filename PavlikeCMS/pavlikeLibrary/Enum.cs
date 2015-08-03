@@ -20,5 +20,9 @@ namespace pavlikeLibrary
         {
             Error, Info, Success, Warning
         }
+        public enum FileType
+        {
+            Document,Media
+        }
     }
 }

@@ -15,13 +15,15 @@ namespace PavlikeDATA.Models
         public Context()
                 : base("pavlikeCMS_DBModel")
         {
-            Database.SetInitializer(new Initializer());
+     
 
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            ApplicationDbContext.Create();
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
 
         #region dbset init
@@ -32,7 +34,7 @@ namespace PavlikeDATA.Models
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<Document> Documents { get; set; }
         public virtual DbSet<File> Files { get; set; }
-        public virtual DbSet<FileType> FileTypes { get; set; }
+      
         public virtual DbSet<Media> Medias { get; set; }
         public virtual DbSet<Page> Pages { get; set; }
         public virtual DbSet<Seo> Seos { get; set; }

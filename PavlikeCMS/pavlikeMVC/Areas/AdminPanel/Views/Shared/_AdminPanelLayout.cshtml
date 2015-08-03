@@ -39,6 +39,14 @@
 
     <link href="~/Content/AdminPanel/assets/js/plugins/summernote/summernote.min.css" rel="stylesheet" />
     <link href="~/Content/AdminPanel/assets/js/plugins/summernote/summernote-bs3.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/AdminPanel/assets/js/plugins/magnific-popup/magnific-popup.min.css">
+    <link href="~/Scripts/dropzone/dropzone.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/AdminPanel/assets/js/plugins/datatables/jquery.dataTables.min.css">
+
+    <link href="~/Content/image-picker.css" rel="stylesheet" />
+
     <!-- CSS framework -->
     <link rel="stylesheet" id="css-main" href="/Content/AdminPanel/assets/css/pavlikeCMS.css">
     @Styles.Render("~/Content/toastr")
@@ -46,6 +54,9 @@
 
     <script src="/Content/AdminPanel/assets/js/core/jquery.min.js"></script>
     <script src="/Content/AdminPanel/assets/js/core/bootstrap.min.js"></script>
+    <script src="~/Content/AdminPanel/assets/js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script src="~/Scripts/dropzone/dropzone.min.js"></script>
+
 </head>
 <body>
     <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
@@ -159,7 +170,7 @@
             <!-- Page Header -->
             <div class="content bg-image overflow-hidden" style="background-image: url('/Content/AdminPanel/assets/img/photos/img-001.jpg');">
                 <div class="push-50-t push-15">
-                    <h1 class="h2 text-white animated zoomIn">Kontrol Paneli [Viewbag.Title]</h1>
+                    <h1 class="h2 text-white animated zoomIn">Kontrol Paneli @Html.ViewBag.Title</h1>
                 </div>
             </div>@Html.Partial("_BootstrapModal")
             @RenderBody()
@@ -198,20 +209,26 @@
     <!-- Page Plugins -->
     <script src="/Content/AdminPanel/assets/js/plugins/slick/slick.min.js"></script>
     <script src="/Content/AdminPanel/assets/js/plugins/chartjs/Chart.min.js"></script>
+    <script src="/Content/AdminPanel/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
     <!-- Editors -->
     <script src="~/Content/AdminPanel/assets/js/plugins/summernote/summernote.min.js"></script>
     <script src="~/Content/AdminPanel/assets/js/plugins/ckeditor/ckeditor.js"></script>
+    <!-- Gallery -->
+    <script src="~/Content/AdminPanel/assets/js/plugins/magnific-popup/magnific-popup.min.js"></script>
+    <script src="~/Content/AdminPanel/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
-
-
+   
+    <script src="~/Scripts/image-picker.js"></script>
+    <script src="~/Scripts/jquery.quick.pagination.min.js"></script>
 
     @Scripts.Render("~/bundles/toastr")
     <script src="~/Scripts/pavlikeLibrary.js"></script>
 
     <script>
         $(function () {
-        
-            App.initHelpers([ 'ckeditor', 'slick']);
+
+            App.initHelpers(['ckeditor', 'slick', 'magnific-popup']);
         });
         $(document).ajaxStop(function () {
 

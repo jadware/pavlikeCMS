@@ -10,12 +10,9 @@ namespace PavlikeDATA.Models
     public class AlbumMedia
     {
         public int Id { get; set; }
-        //public int AlbumId { get; set; }
-        //public int MediaId { get; set; }
-
-        //[ForeignKey("AlbumId")]
-        public Album Album { get; set; }
-        //[ForeignKey("MediaId")]
-        public Media Media { get; set; }
+        public int AlbumId { get; set; }
+        public virtual Album Album { get; set; }
+        public int MediaId { get; set; }
+        public virtual Media Media { get; set; }
     }
 }

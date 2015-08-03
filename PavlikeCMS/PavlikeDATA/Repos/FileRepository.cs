@@ -7,26 +7,20 @@ using Enum = pavlikeLibrary.Enum;
 
 namespace PavlikeDATA.Repos
 {
-    public class AlbumRepository
+    public class FileRepository
     {
         readonly Context _db = new Context();
-        public List<Album> GetAll()
+        public List<File> GetAll()
         {
-            return _db.Albums.Where(c => c.Active).OrderBy(c => c.Title).Include(c => c.Author).Include(c => c.AlbumMediaCollection).ToList();
+            return _db.Files.Where(c => c.Active).OrderBy(c => c.Title).Include(c => c.Author).Include(c => c.FileType).ToList();
         }
-
-        public int Count()
-        {
-            return _db.Albums.Count(c => c.Active);
-        }
-
-        public Enum.EntityResult Create(Album album)
+        
+        public Enum.EntityResult Create(File file)
         {
             try
             {
-                album.Active = true;
-                _db.Albums.Add(album);
-                _db.SaveChanges();
+                file.Active = true;
+                _db.Files.Add(file);
 
                 return Enum.EntityResult.Success;
             }
@@ -34,41 +28,49 @@ namespace PavlikeDATA.Repos
             {
                 return Enum.EntityResult.Failed;
             }
-
+            finally
+            {
+                _db.SaveChanges();
+            }
         }
 
-        public Album FindbyId(int id)
+        public File FindbyId(int id)
         {
-            return _db.Albums.SingleOrDefault(c => c.Id == id);
+
+            _db.SaveChanges();
+            return _db.Files.SingleOrDefault(c => c.Id == id);
 
         }
 
-        public Enum.EntityResult Update(Album modified)
+        public Enum.EntityResult Update(File modified)
         {
             try
             {
                 _db.Entry(modified).State = EntityState.Modified;
-                _db.SaveChanges();
                 return Enum.EntityResult.Success;
             }
-            catch (Exception r)
+            catch (Exception)
             {
                 return Enum.EntityResult.Failed;
             }
+            finally
+            {
+                _db.SaveChanges();
+            }
         }
 
-        public Enum.EntityResult Disable(Album disable)
+        public Enum.EntityResult Disable(File disable)
         {
             disable.Active = false;
             return Update(disable);
 
         }
 
-        public Enum.EntityResult Delete(Album delete)
+        public Enum.EntityResult Delete(File delete)
         {
             try
             {
-                _db.Albums.Remove(delete);
+                _db.Files.Remove(delete);
                 return Enum.EntityResult.Success;
             }
             catch (Exception)

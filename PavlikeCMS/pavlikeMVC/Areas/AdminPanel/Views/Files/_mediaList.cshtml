@@ -1,0 +1,24 @@
+﻿@model IEnumerable<PavlikeDATA.Models.Media>
+
+@{
+
+//Layout = "~/Areas/AdminPanel/Views/Shared/_AdminPanelLayout.cshtml";
+
+}
+<div class="row">
+
+    <select multiple="multiple" class="image-picker show-html">
+        @foreach (var item in Model)
+        {
+            <option data-img-src="@Url.Content(item.File.Url)" value="@item.Id">@item.Title</option>
+        }
+
+    </select>
+</div>
+<script>
+    $(function () {
+        $("select").imagepicker();
+        $(".image_picker_selector").quickPagination({ pageSize: "9" });
+    })
+
+</script>

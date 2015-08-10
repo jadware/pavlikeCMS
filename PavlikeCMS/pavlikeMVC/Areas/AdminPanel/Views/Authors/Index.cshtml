@@ -55,8 +55,9 @@
                                     @Html.DisplayFor(modelItem => item.Active)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }) |
-                                    @Html.ActionLink("Sil", "Delete", new { id = item.Id })
+                        
+                                    <a href="@Url.Action("Edit", new {id = item.Id})" class="btn btn-xs btn-default" ><i class="fa fa-pencil"></i></a>
+                                    <button onclick="ActionElement(this)" link="@Url.Action("Delete",new {@id=item.Id})" title="@item.EMail - Sil" confirmtext="Sil" form="" class="btn btn-xs btn-default" type="button"><i class="fa fa-times"></i></button>
                                 </td>
                             </tr>
                         }

@@ -34,7 +34,8 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
             if (!ModelState.IsValid)
             {
                 this.AddToastMessage("", "Alanları kontrol Ediniz", Enum.ToastrType.Warning);
-
+                ViewBag.ArticleTypeId = new SelectList(new ArticleRepository().Types(), "Id", "Title",model.ArticleTypeId);
+                ViewBag.PageId = new SelectList(new PageRepository().GetAll(), "Id", "Title",model.PageId);
                 return View(model);
             }
             model.AuthorId = new AuthenticatedAuthor().Id;
@@ -42,6 +43,8 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
             if (res == Enum.EntityResult.Failed)
             {
                 this.AddToastMessage("", "Makale oluşturulurken hata", Enum.ToastrType.Error);
+                ViewBag.ArticleTypeId = new SelectList(new ArticleRepository().Types(), "Id", "Title", model.ArticleTypeId);
+                ViewBag.PageId = new SelectList(new PageRepository().GetAll(), "Id", "Title", model.PageId);
                 return View(model);
             }
 
@@ -79,6 +82,12 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public string _Delete()
+        {
+            return "Makaleyi silmek istiyor musunuz?";
+        }
+        
         [HttpPost]
         public bool _Delete(int id)
         {

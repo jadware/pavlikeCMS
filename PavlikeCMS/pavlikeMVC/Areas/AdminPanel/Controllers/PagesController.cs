@@ -74,6 +74,12 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
             return true;
         }
 
+        [HttpGet]
+        public string _Delete()
+        {
+            return "Bu sayfayı silmek istiyor musunuz?";
+        }
+
         [HttpPost]
         public bool _Delete(int id)
         {

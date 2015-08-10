@@ -85,17 +85,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201507251131005_ReBorn.cs" />
-    <Compile Include="Migrations\201507251131005_ReBorn.Designer.cs">
-      <DependentUpon>201507251131005_ReBorn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507271002447_newthings.cs" />
-    <Compile Include="Migrations\201507271002447_newthings.Designer.cs">
-      <DependentUpon>201507271002447_newthings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507271019037_asd.cs" />
-    <Compile Include="Migrations\201507271019037_asd.Designer.cs">
-      <DependentUpon>201507271019037_asd.cs</DependentUpon>
+    <Compile Include="Migrations\201508081318598_Author.cs" />
+    <Compile Include="Migrations\201508081318598_Author.Designer.cs">
+      <DependentUpon>201508081318598_Author.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
@@ -122,6 +114,7 @@
     <Compile Include="Repos\AlbumRepository.cs" />
     <Compile Include="Repos\ArticleRepository.cs" />
     <Compile Include="Repos\AuthorRepository.cs" />
+    <Compile Include="Repos\DocumentRepository.cs" />
     <Compile Include="Repos\FileRepository.cs" />
     <Compile Include="Repos\MediaRepository.cs" />
     <Compile Include="Repos\PageRepository.cs" />
@@ -140,14 +133,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507251131005_ReBorn.resx">
-      <DependentUpon>201507251131005_ReBorn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507271002447_newthings.resx">
-      <DependentUpon>201507271002447_newthings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507271019037_asd.resx">
-      <DependentUpon>201507271019037_asd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201508081318598_Author.resx">
+      <DependentUpon>201508081318598_Author.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

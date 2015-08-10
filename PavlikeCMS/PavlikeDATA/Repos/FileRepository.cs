@@ -14,12 +14,13 @@ namespace PavlikeDATA.Repos
         {
             return _db.Files.Where(c => c.Active).OrderBy(c => c.Title).Include(c => c.Author).Include(c => c.FileType).ToList();
         }
-        
+
         public Enum.EntityResult Create(File file)
         {
             try
             {
                 file.Active = true;
+                _db.SaveChanges();
                 _db.Files.Add(file);
 
                 return Enum.EntityResult.Success;
@@ -28,18 +29,11 @@ namespace PavlikeDATA.Repos
             {
                 return Enum.EntityResult.Failed;
             }
-            finally
-            {
-                _db.SaveChanges();
-            }
         }
 
         public File FindbyId(int id)
         {
-
-            _db.SaveChanges();
             return _db.Files.SingleOrDefault(c => c.Id == id);
-
         }
 
         public Enum.EntityResult Update(File modified)
@@ -47,16 +41,14 @@ namespace PavlikeDATA.Repos
             try
             {
                 _db.Entry(modified).State = EntityState.Modified;
+                _db.SaveChanges();
                 return Enum.EntityResult.Success;
             }
             catch (Exception)
             {
                 return Enum.EntityResult.Failed;
             }
-            finally
-            {
-                _db.SaveChanges();
-            }
+
         }
 
         public Enum.EntityResult Disable(File disable)
@@ -71,17 +63,13 @@ namespace PavlikeDATA.Repos
             try
             {
                 _db.Files.Remove(delete);
+                _db.SaveChanges();
                 return Enum.EntityResult.Success;
             }
             catch (Exception)
             {
                 return Enum.EntityResult.Failed;
             }
-            finally
-            {
-                _db.SaveChanges();
-            }
-
         }
         public Enum.EntityResult FindbyIdandDisable(int id)
         {

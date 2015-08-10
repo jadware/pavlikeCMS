@@ -17,14 +17,14 @@ using pavlikeLibrary;
 
 namespace pavlikeMVC
 {
-    
+
     public class EmailService : IIdentityMessageService
     {
         readonly Context _dbContext = new Context();
         public Task SendAsync(IdentityMessage message)
         {
             var sets = _dbContext.MailSettings.FirstOrDefault();
-            MailerDeamon.Sender(sets.Host,sets.Port,sets.EmailAdress,sets.EmailPassword,message.Destination,message.Destination,message.Body,message.Subject,"Pavlike");
+            MailerDeamon.Sender(sets.Host, sets.Port, sets.EmailAdress, sets.EmailPassword, message.Destination, message.Destination, message.Body, message.Subject, "Pavlike");
             return Task.FromResult(0);
         }
     }
@@ -57,14 +57,10 @@ namespace pavlikeMVC
             };
 
             // Configure validation logic for passwords
-            manager.PasswordValidator = new PasswordValidator
-            {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
-            };
+            //manager.PasswordValidator = new PasswordValidator
+            //{
+
+            //};
 
             // Configure user lockout defaults
             manager.UserLockoutEnabledByDefault = true;

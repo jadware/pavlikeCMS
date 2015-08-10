@@ -51,7 +51,10 @@ namespace PavlikeDATA.Repos
                 _db.SaveChanges();
                 return Enum.EntityResult.Success;
             }
+
+#pragma warning disable CS0168 // Variable is declared but never used
             catch (Exception r)
+#pragma warning restore CS0168 // Variable is declared but never used
             {
                 return Enum.EntityResult.Failed;
             }
@@ -69,17 +72,13 @@ namespace PavlikeDATA.Repos
             try
             {
                 _db.Albums.Remove(delete);
+                _db.SaveChanges();
                 return Enum.EntityResult.Success;
             }
             catch (Exception)
             {
                 return Enum.EntityResult.Failed;
             }
-            finally
-            {
-                _db.SaveChanges();
-            }
-
         }
         public Enum.EntityResult FindbyIdandDisable(int id)
         {

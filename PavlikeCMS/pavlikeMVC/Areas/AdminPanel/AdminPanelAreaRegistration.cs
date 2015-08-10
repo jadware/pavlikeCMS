@@ -4,13 +4,7 @@ namespace pavlikeMVC.Areas.AdminPanel
 {
     public class AdminPanelAreaRegistration : AreaRegistration 
     {
-        public override string AreaName 
-        {
-            get 
-            {
-                return "AdminPanel";
-            }
-        }
+        public override string AreaName => "AdminPanel";
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {

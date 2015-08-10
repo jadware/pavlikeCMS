@@ -13,21 +13,10 @@
                     <a id="" class="btn btn-success push-5-r push-10" href="@Url.Action("_Create")" type="button"><i class="fa fa-plus"></i> Yeni Makale Ekle</a>
                 </div>
                 <div class="block-content">
-                    <div id="articleList"></div>
-         
+                    <div id="elementList" link="@Url.Action("_List")"></div>
                 </div>
             </div>
         </div>
     </div>
 
 </div>
-
-
-
-<script>
-    $(function() {
-        refreshList("@Url.Action("_List")", "articleList");
-    });
-
-
-</script>

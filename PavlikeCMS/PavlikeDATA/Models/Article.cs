@@ -25,7 +25,7 @@ namespace PavlikeDATA.Models
 
         [Display(Name = "Yazı Türü")]
         [Required(ErrorMessage = "*Gerekli Alan")]
-        public int ArticleTypeId { get; set; }
+        public int? ArticleTypeId { get; set; }
         public ArticleType ArticleType { get; set; }
 
         [DefaultValue(true)]

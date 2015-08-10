@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -13,7 +10,7 @@ using PavlikeDATA.Models;
 using PavlikeDATA.Repos;
 using Enum = pavlikeLibrary.Enum;
 
-namespace pavlikeMVC.Controllers
+namespace pavlikeMVC.Areas.AdminPanel.Controllers
 {
     [Authorize]
     public class AccountController : Controller

@@ -18,13 +18,17 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
     public class FilesController : Controller
     {
         readonly AlbumRepository _albumRepo = new AlbumRepository();
+        readonly DocumentRepository _documentRepo = new DocumentRepository();
+        readonly SliderRepository _sliderRepo = new SliderRepository();
 
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult GalleryIndex()
+
+        #region Gallery
+        public ActionResult Gallery()
         {
             ViewBag.AlbumCount = new AlbumRepository().Count();
             ViewBag.MediaCount = new MediaRepository().Count();
@@ -62,43 +66,7 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
 
         }
 
-        [HttpPost]
-        public void AlbumMediaUpload(int albumId)
-        {
 
-            var file = Request.Files[0];
-
-            if (!(file?.ContentLength > 0)) return;
-            var res = FileSave(file, "Media", Enum.FileType.Media);
-            if (res == null)
-            {
-                this.AddToastMessage("", "Dosya yüklenirken hata!");
-                return;
-            }
-            var media = new Media
-            {
-                Active = true,
-                AuthorId = new AuthenticatedAuthor().Id,
-                CreateDateTime = DateTime.Now,
-                FileId = res.Id,
-                Title = res.Title
-
-            };
-            if (new MediaRepository().Create(media) == Enum.EntityResult.Success)
-            {
-
-                if (new AlbumMediaRepository().Create(new AlbumMedia { AlbumId = albumId, MediaId = media.Id }) !=
-                    Enum.EntityResult.Success)
-                {
-                    this.AddToastMessage("", "Album kaydedilirken hata");
-                }
-            }
-            else
-            {
-                this.AddToastMessage("", "Album kaydedilirken hata");
-            }
-
-        }
 
         [HttpGet]
         public PartialViewResult GalleryView(int id)
@@ -141,13 +109,53 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
                 this.AddToastMessage("", "Album silme başarılı", Enum.ToastrType.Success);
             }
         }
+        #endregion
+
+        #region Media
+
 
         [HttpGet]
         public PartialViewResult _mediaEdit(int id)
         {
             return PartialView(new MediaRepository().FindbyId(id));
         }
+        [HttpPost]
+        public void AlbumMediaUpload(int albumId)
+        {
 
+            var file = Request.Files[0];
+
+            if (!(file?.ContentLength > 0)) return;
+            var res = FileSave(file, "Media", Enum.FileType.Media);
+            if (res == null)
+            {
+                this.AddToastMessage("", "Dosya yüklenirken hata!");
+                return;
+            }
+            var media = new Media
+            {
+                Active = true,
+                AuthorId = new AuthenticatedAuthor().Id,
+                CreateDateTime = DateTime.Now,
+                FileId = res.Id,
+                Title = res.Title
+
+            };
+            if (new MediaRepository().Create(media) == Enum.EntityResult.Success)
+            {
+
+                if (new AlbumMediaRepository().Create(new AlbumMedia { AlbumId = albumId, MediaId = media.Id }) !=
+                    Enum.EntityResult.Success)
+                {
+                    this.AddToastMessage("", "Album kaydedilirken hata");
+                }
+            }
+            else
+            {
+                this.AddToastMessage("", "Album kaydedilirken hata");
+            }
+
+        }
         [HttpPost]
         public bool _mediaEdit(Media media)
         {
@@ -166,6 +174,23 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
             return true;
         }
         [HttpPost]
+        public bool _mediaDelete(int id)
+        {
+            if (new AlbumMediaRepository().DeleteAllbyMediaId(id) == Enum.EntityResult.Failed)
+            {
+                this.AddToastMessage("", "Görsel silinirken hata", Enum.ToastrType.Error);
+                return false;
+            }
+            if (new MediaRepository().FindbyIdandDisable(id) == Enum.EntityResult.Failed)
+            {
+                this.AddToastMessage("", "Görsel silinirken hata.", Enum.ToastrType.Error);
+                return false;
+            }
+
+            this.AddToastMessage("", "Görsel silindi.", Enum.ToastrType.Success);
+            return true;
+        }
+        [HttpPost]
         public bool _AlbumMediaDelete(int mediaId, int albumId)
         {
             var res = new AlbumMediaRepository().FindandDelete(mediaId, albumId);
@@ -180,7 +205,7 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
         [HttpPost]
         public bool _AlbumMediaInsert(int[] medias, int albumId)
         {
-            if (medias.Select(item => new AlbumMediaRepository().Create(new AlbumMedia {AlbumId = albumId, MediaId = item})).Any(res => res == Enum.EntityResult.Failed))
+            if (medias.Select(item => new AlbumMediaRepository().Create(new AlbumMedia { AlbumId = albumId, MediaId = item })).Any(res => res == Enum.EntityResult.Failed))
             {
                 this.AddToastMessage("", "Görseller eklenirken hata!", Enum.ToastrType.Error);
                 return false;
@@ -189,177 +214,199 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
             return true;
         }
 
-
-        public ActionResult LibraryIndex()
-        {
-            return View();
-        }
-
-
-        public PartialViewResult _libraryList()
-        {
-            return PartialView(new AlbumRepository().GetAll());
-        }
-
-        [HttpGet]
-        public PartialViewResult _libraryCreate()
-        {
-
-            return PartialView(new File());
-        }
-
-        [HttpPost]
-        public bool _libraryCreate(File model)
-        {
-            if (!ModelState.IsValid)
-            {
-                this.AddToastMessage("", "Alanları kontrol Ediniz", Enum.ToastrType.Warning);
-
-                return false;
-            }
-            model.AuthorId = new AuthenticatedAuthor().Id;
-            var res = new FileRepository().Create(model);
-            if (res == Enum.EntityResult.Failed)
-            {
-                this.AddToastMessage("", "Dosya oluşturulurken hata", Enum.ToastrType.Error);
-                return false;
-            }
-
-            this.AddToastMessage("", "Kayıt Başarılı", Enum.ToastrType.Success);
-            return true;
-
-        }
-
-        [HttpGet]
-        public PartialViewResult _libraryEdit(int id)
-        {
-            var item = new FileRepository().FindbyId(id);
-            return PartialView("_libraryCreate", item);
-        }
-
-        [HttpPost]
-        public bool _libraryEdit(File modified)
-        {
-            if (!ModelState.IsValid)
-            {
-                this.AddToastMessage("", "Alanları kontrol Ediniz", Enum.ToastrType.Warning);
-                return false;
-            }
-            var res = new FileRepository().Update(modified);
-            if (res == Enum.EntityResult.Failed)
-            {
-                this.AddToastMessage("", "Dosya güncellenirken hata", Enum.ToastrType.Error);
-                return false;
-            }
-
-            this.AddToastMessage("", "Kayıt Başarılı", Enum.ToastrType.Success);
-            return true;
-        }
-
-        [HttpPost]
-        public bool _libraryDelete(int id)
-        {
-            var res = new FileRepository().FindbyIdandDisable(id);
-            if (res == Enum.EntityResult.Failed)
-            {
-                this.AddToastMessage("", "Dosya silinirken hata", Enum.ToastrType.Error);
-                return false;
-            }
-            this.AddToastMessage("", "Dosya silme başarılı", Enum.ToastrType.Success);
-            return true;
-        }
-
         [HttpGet]
         public PartialViewResult _mediaList()
         {
             return PartialView(new MediaRepository().GetAll());
         }
+        #endregion
 
+        #region Documents
+        public ActionResult Documents()
+        {
+            ViewBag.Count = _documentRepo.Count();
+            return View(_documentRepo.GetAll());
+        }
 
+        [HttpGet]
+        public ActionResult DocumentCreate()
+        {
+            return View(new Document());
+        }
 
+        [HttpPost]
+        public ActionResult DocumentCreate(Document model, HttpPostedFileBase uploadFile)
+        {
+            if (!ModelState.IsValid)
+            {
+                this.AddToastMessage("", "Alanları kontrol Ediniz", Enum.ToastrType.Warning);
 
+                return View(model);
+            }
 
+            if (!(uploadFile?.ContentLength > 0))
+            {
+                this.AddToastMessage("", "Belge seçmelisiniz!", Enum.ToastrType.Error);
+                return View(model);
+            }
+            var uploadedFile = FileSave(uploadFile, "Document", Enum.FileType.Document);
+            if (uploadedFile == null)
+            {
+                this.AddToastMessage("", "Dosya kaydedilirken hata.", Enum.ToastrType.Error);
+                return View(model);
+            }
 
+            model.AuthorId = new AuthenticatedAuthor().Id;
+            model.FileId = uploadedFile.Id;
+            var res = _documentRepo.Create(model);
+            if (res == Enum.EntityResult.Failed)
+            {
+                this.AddToastMessage("", "Dosya kaydedilirken hata", Enum.ToastrType.Error);
+                FileDelete(new FileRepository().FindbyId(model.FileId));
+                return View(model);
+            }
 
-        public ActionResult SliderIndex()
+            this.AddToastMessage("", "Kayıt Başarılı", Enum.ToastrType.Success);
+            return RedirectToAction("Documents");
+
+        }
+
+        [HttpGet]
+        public ActionResult DocumentEdit(int id)
+        {
+            return PartialView("DocumentCreate", _documentRepo.FindbyId(id));
+        }
+
+        [HttpPost]
+        public ActionResult DocumentEdit(Document modified)
+        {
+            if (!ModelState.IsValid)
+            {
+                this.AddToastMessage("", "Alanları kontrol Ediniz", Enum.ToastrType.Warning);
+                return View("DocumentCreate", modified);
+            }
+            var res = new DocumentRepository().Update(modified);
+            if (res == Enum.EntityResult.Failed)
+            {
+                this.AddToastMessage("", "Belge güncellenirken hata", Enum.ToastrType.Error);
+                return View("DocumentCreate", modified);
+            }
+
+            this.AddToastMessage("", "Kayıt Başarılı", Enum.ToastrType.Success);
+            return RedirectToAction("Documents");
+        }
+
+        [HttpPost]
+        public bool _documentDelete(int id)
+        {
+            var res = new DocumentRepository().FindbyIdandDisable(id);
+            if (res == Enum.EntityResult.Failed)
+            {
+                this.AddToastMessage("", "Belge silinirken hata", Enum.ToastrType.Error);
+                return false;
+            }
+            this.AddToastMessage("", "Belge silme başarılı", Enum.ToastrType.Success);
+            return true;
+        }
+
+        #endregion
+
+        #region Sliders
+
+        public ActionResult Slider()
+        {
+            return View(_sliderRepo.GetAll());
+        }
+
+        [HttpGet]
+        public ActionResult SliderCreate()
         {
             return View();
         }
 
-        public PartialViewResult _sliderList()
-        {
-            return PartialView(new SliderRepository().GetAll());
-        }
-
-        [HttpGet]
-        public PartialViewResult _sliderCreate()
-        {
-
-            return PartialView(new Slider());
-        }
-
         [HttpPost]
-        public bool _sliderCreate(Slider model)
+        public ActionResult SliderCreate(Slider model, HttpPostedFileBase uploadedFile)
         {
             if (!ModelState.IsValid)
             {
                 this.AddToastMessage("", "Alanları kontrol Ediniz", Enum.ToastrType.Warning);
-
-                return false;
+                return View(model);
             }
+            if (uploadedFile == null)
+            {
+                this.AddToastMessage("", "Görsel seçmelisiniz", Enum.ToastrType.Warning);
+                return View(model);
+            }
+            if (uploadedFile.ContentLength < 0)
+            {
+                this.AddToastMessage("", "Görsel seçmelisiniz", Enum.ToastrType.Warning);
+                return View(model);
+                }
 
+            var file = FileSave(uploadedFile, "Slider", Enum.FileType.Media);
+            if (file == null)
+            {
+                this.AddToastMessage("", "Görsel yüklenirken hata!", Enum.ToastrType.Error);
+                return View(model);
+            }
+            model.AuthorId = new AuthenticatedAuthor().Id;
+            model.FileId = file.Id;
             var res = new SliderRepository().Create(model);
             if (res == Enum.EntityResult.Failed)
             {
                 this.AddToastMessage("", "Slider oluşturulurken hata", Enum.ToastrType.Error);
-                return false;
+                return View(model);
             }
 
             this.AddToastMessage("", "Kayıt Başarılı", Enum.ToastrType.Success);
-            return true;
+            return RedirectToAction("Slider");
 
         }
 
         [HttpGet]
-        public PartialViewResult _sliderEdit(int id)
+        public ActionResult SliderEdit(int id)
         {
             var item = new SliderRepository().FindbyId(id);
-            return PartialView("_sliderCreate", item);
+            return View("SliderCreate", item);
         }
 
         [HttpPost]
-        public bool _sliderEdit(Slider modified)
+        public ActionResult SliderEdit(Slider modified)
         {
             if (!ModelState.IsValid)
             {
                 this.AddToastMessage("", "Alanları kontrol Ediniz", Enum.ToastrType.Warning);
-                return false;
+                return View("SliderCreate", modified);
             }
             var res = new SliderRepository().Update(modified);
             if (res == Enum.EntityResult.Failed)
             {
                 this.AddToastMessage("", "Slider güncellenirken hata", Enum.ToastrType.Error);
-                return false;
+                return View("SliderCreate", modified);
             }
 
             this.AddToastMessage("", "Kayıt Başarılı", Enum.ToastrType.Success);
-            return true;
+            return RedirectToAction("Slider");
         }
 
         [HttpPost]
-        public bool _sliderDelete(int id)
+        public void _sliderDelete(int id)
         {
             var res = new SliderRepository().FindbyIdandDisable(id);
             if (res == Enum.EntityResult.Failed)
             {
                 this.AddToastMessage("", "Slider silinirken hata", Enum.ToastrType.Error);
-                return false;
+          
             }
-            this.AddToastMessage("", "Slider silme başarılı", Enum.ToastrType.Success);
-            return true;
+            else
+            {
+                this.AddToastMessage("", "Slider silme başarılı", Enum.ToastrType.Success);
+            }
+            
+       
         }
-
-
+#endregion 
+        #region FileWorks
 
         public File FileSave(HttpPostedFileBase file, string folder, Enum.FileType fileType)
         {
@@ -406,6 +453,18 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
                 return null;
             }
         }
+
+        public bool FileDelete(File file)
+        {
+            if (file == null) return true;
+            if (System.IO.File.Exists(Server.MapPath(file.Url)))
+            {
+                System.IO.File.Delete(Server.MapPath(file.Url));
+            }
+            return new FileRepository().Delete(file) != Enum.EntityResult.Failed;
+        }
+
+        #endregion
 
     }
 }

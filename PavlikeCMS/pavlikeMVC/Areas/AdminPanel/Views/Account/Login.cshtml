@@ -1,10 +1,30 @@
 ﻿@using pavlikeMVC.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Log in";
-    Layout = "~/Areas/AdminPanel/Views/Shared/_CleanLayout.cshtml";
+    ViewBag.Title = "Giriş Yap";
 }
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-focus">
+ <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
 
+    <title>OneUI - shared on themelock.com</title>
+
+    <meta name="description" content="OneUI - Admin Dashboard Template & UI Framework created by pixelcave and published on Themeforest">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+    <link rel="stylesheet" id="css-main" href="~/Content/pavlikeCMS.css">
+
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
+    <!-- END Stylesheets -->
+</head>
+<body>
 
 <!-- Login Content -->
 <div class="content overflow-hidden">
@@ -65,10 +85,10 @@
                             </div>
                         </div>
 
-                        @* Enable this once you have account confirmation enabled for password reset functionality
-                            <p>
-                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                            </p>*@
+                            @* Enable this once you have account confirmation enabled for password reset functionality
+                                <p>
+                                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                </p>*@
                     }
                     <!-- END Login Form -->
                 </div>
@@ -80,11 +100,13 @@
 
 <div class="col-md-4">
     <section id="socialLoginForm">
-        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel {ReturnUrl = ViewBag.ReturnUrl})
     </section>
 </div>
 
 <!-- END Login Content -->
 @*@section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }*@
+            @Scripts.Render("~/bundles/jqueryval")
+        }*@
+</body>
+</html>

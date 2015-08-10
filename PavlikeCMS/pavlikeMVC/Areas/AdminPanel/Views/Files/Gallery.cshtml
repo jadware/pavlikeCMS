@@ -30,7 +30,8 @@
                             </a>
                         </div>
                         <div class="col-xs-6 col-sm-4 col-lg-4">
-                            <a class="block block-link-hover3 text-center" href="@Url.Action("LibraryIndex")">
+                            <a class="block block-link-hover3 text-center" href="@Url.Action("_mediaList")">
+>
                                 <div class="block-content block-content-full">
                                     <i class="si si-docs fa-4x text-danger">@ViewBag.MediaCount</i>
                                     <div class="font-w600 push-15-t">Görsel</div>
@@ -82,10 +83,8 @@
         var item = $(this);
         var res = confirm("Silinsin mi?");
         if (res === true) {
-            $.post("@Url.Action("_galleryDelete")", { id: item.attr("item-id")});
+            $.post("@Url.Action("_galleryDelete")", { id: item.attr("item-id") });
             location.reload();
         }
     });
-
-
 </script>

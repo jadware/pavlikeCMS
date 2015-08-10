@@ -125,9 +125,7 @@
 </div>
 
 <script type="text/javascript">
-
-
-
+    
     jQuery('.js-wizard-simple').bootstrapWizard({
         'tabClass': '',
         'firstSelector': '.wizard-first',
@@ -190,14 +188,11 @@
             selected.push($(this).val());
         });
 
-        $.post("@Url.Action("_AlbumMediaInsert")", {medias: selected, albumId: $("#AlbumId").val()}, function(data) {
-                if (data === "True") {
-                    window.location.replace("@Url.Action("GalleryView")" + "?id=" + $("#AlbumId").val());
-                }
-
-            
+        $.post("@Url.Action("_AlbumMediaInsert")", { medias: selected, albumId: $("#AlbumId").val() }, function (data) {
+            if (data === "True") {
+                window.location.replace("@Url.Action("GalleryView")" + "?id=" + $("#AlbumId").val());
+            }
         });
-
     });
 
 

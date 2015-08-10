@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace pavlikeMVC.Models
@@ -81,19 +82,29 @@ namespace pavlikeMVC.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "E-Posta")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Parola")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Parolayı Onayla")]
+        [Compare("Password", ErrorMessage = "Parolalar uyuşmuyor.")]
         public string ConfirmPassword { get; set; }
+
+
+        [Display(Name = "Ad")]
+        public string Name { get; set; }
+
+        [Display(Name = "Soyad")]
+        public string Surname { get; set; }
+        
+        [Display(Name = "Doğum tarihi")]
+        public DateTime? DateofBirth { get; set; }
+
     }
 
     public class ResetPasswordViewModel

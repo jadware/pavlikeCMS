@@ -267,8 +267,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('/Content/fonts/glyphicons-halflings-regular.eot');
+  src: url('/Content/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('/Content/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/Content/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/Content/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -8727,8 +8727,8 @@ a.list-group-item:focus {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../fonts/fontawesome-webfont.eot?v=4.3.0');
-  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  src: url('/Content/fonts/fontawesome-webfont.eot?v=4.3.0');
+  src: url('/Content/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('/Content/fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('/Content/fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('/Content/fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('/Content/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -10522,8 +10522,8 @@ a.list-group-item:focus {
 }
 @font-face {
   font-family: Simple-Line-Icons;
-  src: url(../fonts/Simple-Line-Icons.eot);
-  src: url(../fonts/Simple-Line-Icons.eot?#iefix) format('embedded-opentype'), url(../fonts/Simple-Line-Icons.woff) format('woff'), url(../fonts/Simple-Line-Icons.ttf) format('truetype'), url(../fonts/Simple-Line-Icons.svg#Simple-Line-Icons) format('svg');
+  src: url(/Content/fonts/Simple-Line-Icons.eot);
+  src: url(/Content/fonts/Simple-Line-Icons.eot?#iefix) format('embedded-opentype'), url(/Content/fonts/Simple-Line-Icons.woff) format('woff'), url(/Content/fonts/Simple-Line-Icons.ttf) format('truetype'), url(/Content/fonts/Simple-Line-Icons.svg#Simple-Line-Icons) format('svg');
   font-weight: 400;
   font-style: normal;
 }

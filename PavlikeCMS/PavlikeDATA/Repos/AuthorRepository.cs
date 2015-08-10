@@ -13,7 +13,7 @@ namespace PavlikeDATA.Repos
   
         public List<Author> GetAll()
         {
-            return _db.Authors.ToList();
+            return _db.Authors.Where(c=> c.Active).ToList();
         }
 
         public Author FindbyId(int id)

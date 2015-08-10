@@ -30,8 +30,16 @@ namespace PavlikeDATA.Migrations
 
 
             //var ct = new Context();
-
-            //ct.Authors.Add(new Author() { UserGuid = user.Id, Name = "SuperUser", EMail = user.Email, DateofBirth = DateTime.Now });
+            //var author = new Author()
+            //{
+                
+            //    UserGuid = user.Id,
+            //    Name = "SuperUser",
+            //    EMail = user.Email,
+            //    DateofBirth = DateTime.Now
+            //};
+            //ct.Authors.Add(new Author)
+            //ct.Authors.Add(new Author( ));
             //ct.SaveChanges();
 
         }

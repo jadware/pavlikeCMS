@@ -50,7 +50,7 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
                 _userManager = value;
             }
         }
-        
+
 
         public ActionResult Index()
         {
@@ -132,17 +132,17 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
 
 
         [HttpPost]
-        public void DeleteConfirmed(int id)
+        public bool Delete(int id)
         {
             var res = _author.FindbyIdandDisable(id);
             if (res == Enum.EntityResult.Failed)
             {
                 this.AddToastMessage("", "Kullanıcı silinirken hata.", Enum.ToastrType.Error);
+                return false;
             }
 
             this.AddToastMessage("", "Kullanıcı silindi.", Enum.ToastrType.Success);
-
-
+            return true;
         }
         private void AddErrors(IdentityResult result)
         {
@@ -151,7 +151,35 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
                 this.AddToastMessage("", error, Enum.ToastrType.Error);
             }
         }
-        
+        public ActionResult _SetPassword(string userguid)
+        {
+            ViewBag.userguid = userguid;
+            return View();
+        }
+
+
+        [HttpPost]
+        public void _SetPassword(SetPasswordViewModel model, string userguid)
+        {
+            if (!ModelState.IsValid)
+            {
+                this.AddToastMessage("",
+                    model.ConfirmPassword != model.NewPassword ? "Parolalar uyuşmuyor." : "Alanları kontrol ediniz.",
+                    Enum.ToastrType.Warning);
+
+                return;
+            }
+            var user = UserManager.FindById(userguid);
+            if (!UserManager.RemovePassword(user.Id).Succeeded) { this.AddToastMessage("", "şifre değiştirilirken hata.", Enum.ToastrType.Error); return; }
+            var result = UserManager.AddPassword(user.Id, model.NewPassword);
+            if (result.Succeeded)
+            {
+                this.AddToastMessage("", "Şifre Değiştirildi.", Enum.ToastrType.Success);
+                return;
+            }
+            AddErrors(result);
+        }
+
         //public ActionResult Details(int id)
         //{
         //    var author = _author.FindbyId(id);

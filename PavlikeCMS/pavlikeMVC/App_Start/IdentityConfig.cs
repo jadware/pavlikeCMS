@@ -57,10 +57,15 @@ namespace pavlikeMVC
             };
 
             // Configure validation logic for passwords
-            //manager.PasswordValidator = new PasswordValidator
-            //{
-
-            //};
+            manager.PasswordValidator = new PasswordValidator
+            {
+                RequiredLength = 4,
+                RequireDigit = false,
+                RequireLowercase = false,
+                RequireNonLetterOrDigit = false,
+                RequireUppercase = false
+                
+            };
 
             // Configure user lockout defaults
             manager.UserLockoutEnabledByDefault = true;

@@ -85,9 +85,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201508081318598_Author.cs" />
-    <Compile Include="Migrations\201508081318598_Author.Designer.cs">
-      <DependentUpon>201508081318598_Author.cs</DependentUpon>
+    <Compile Include="Migrations\201508111325430_Install.cs" />
+    <Compile Include="Migrations\201508111325430_Install.Designer.cs">
+      <DependentUpon>201508111325430_Install.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
@@ -102,7 +102,7 @@
     <None Include="Models\FileType.cs.old" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Initializer.cs" />
-    <Compile Include="Models\MailSettings.cs" />
+    <None Include="Models\MailSettings.cs.old" />
     <Compile Include="Models\Media.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Seo.cs" />
@@ -118,6 +118,7 @@
     <Compile Include="Repos\FileRepository.cs" />
     <Compile Include="Repos\MediaRepository.cs" />
     <Compile Include="Repos\PageRepository.cs" />
+    <Compile Include="Repos\SettingRepository.cs" />
     <Compile Include="Repos\SliderRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -133,8 +134,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508081318598_Author.resx">
-      <DependentUpon>201508081318598_Author.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201508111325430_Install.resx">
+      <DependentUpon>201508111325430_Install.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

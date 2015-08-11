@@ -41,7 +41,7 @@ namespace PavlikeDATA.Models
         public virtual DbSet<Settings> Settings { get; set; }
         public virtual DbSet<Slider> Sliders { get; set; }
         public virtual DbSet<Social> Socials { get; set; }
-        public virtual DbSet<MailSettings> MailSettings { get; set; }
+        //public virtual DbSet<MailSettings> MailSettings { get; set; }
         public virtual DbSet<EntityLog> EntityLogs { get; set; }
 
         #endregion

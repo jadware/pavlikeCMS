@@ -37,12 +37,9 @@ namespace PavlikeDATA.Repos
 
         }
 
-        public Media FindbyId(int id)
+        public Media FindbyId(int? id)
         {
-
-            _db.SaveChanges();
-            return _db.Medias.Include(c => c.Author).Include(c => c.File).SingleOrDefault(c => c.Id == id);
-
+            return id == null ? null : _db.Medias.Include(c => c.Author).Include(c => c.File).SingleOrDefault(c => c.Id == id);
         }
 
         public Enum.EntityResult Update(Media modified)

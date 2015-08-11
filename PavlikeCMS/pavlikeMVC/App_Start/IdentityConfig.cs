@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using pavlikeMVC.Models;
-
 using PavlikeDATA.Models;
-using pavlikeLibrary;
 
 namespace pavlikeMVC
 {
@@ -23,8 +16,8 @@ namespace pavlikeMVC
         readonly Context _dbContext = new Context();
         public Task SendAsync(IdentityMessage message)
         {
-            var sets = _dbContext.MailSettings.FirstOrDefault();
-            MailerDeamon.Sender(sets.Host, sets.Port, sets.EmailAdress, sets.EmailPassword, message.Destination, message.Destination, message.Body, message.Subject, "Pavlike");
+            //var sets = _dbContext.MailSettings.FirstOrDefault();
+            //MailerDeamon.Sender(sets.Host, sets.Port, sets.EmailAdress, sets.EmailPassword, message.Destination, message.Destination, message.Body, message.Subject, "Pavlike");
             return Task.FromResult(0);
         }
     }

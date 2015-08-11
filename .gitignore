@@ -211,3 +211,6 @@ PavlikeCMS/PavlikeDATA/bin/Debug/PavlikeDATA.pdb
 PavlikeCMS/AdminTheme/bin/AdminTheme.dll
 PavlikeCMS/PavlikeDATA/bin/Debug/PavlikeDATA.dll
 PavlikeCMS/PavlikeDATA/obj/Debug/PavlikeDATA.csproj.FileListAbsolute.txt
+/PavlikeCMS/pavlikeMVC/Content/Uploads/Slider
+/PavlikeCMS/pavlikeMVC/Content/Uploads/Media
+/PavlikeCMS/pavlikeMVC/Content/Uploads/Document

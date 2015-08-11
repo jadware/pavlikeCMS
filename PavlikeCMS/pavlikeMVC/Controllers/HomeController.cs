@@ -1,6 +1,4 @@
-﻿using pavlikeLibrary;
-using System.Web.Mvc;
-using PavlikeDATA.Repos;
+﻿using System.Web.Mvc;
 
 namespace pavlikeMVC.Controllers
 {

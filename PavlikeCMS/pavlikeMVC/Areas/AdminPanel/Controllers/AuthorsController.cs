@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -94,7 +93,7 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            //this.AddToastMessage("", "Kullanıcı oluşturulurken hata.", Enum.ToastrType.Error);
+     
             AddErrors(result);
             return View(model);
         }

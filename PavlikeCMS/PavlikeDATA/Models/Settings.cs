@@ -13,6 +13,7 @@ namespace PavlikeDATA.Models
         [Display(Name = "Etiketler")]
         public string MetaTags { get; set; }
         [Display(Name = "Site Adresi")]
+        [DataType(DataType.Url)]
         public string Url { get; set; }
         [Display(Name = "Yönetici E-Posta")]
         public string AdminEmail { get; set; }

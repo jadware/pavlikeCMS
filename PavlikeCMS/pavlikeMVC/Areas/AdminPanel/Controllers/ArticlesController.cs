@@ -6,6 +6,7 @@ using PavlikeDATA.Repos;
 
 namespace pavlikeMVC.Areas.AdminPanel.Controllers
 {
+    [Authorize]
     public class ArticlesController : Controller
     {
         public ActionResult Index()

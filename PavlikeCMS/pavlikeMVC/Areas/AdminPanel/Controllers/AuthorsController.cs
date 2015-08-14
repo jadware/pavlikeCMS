@@ -9,6 +9,8 @@ using PavlikeDATA.Repos;
 
 namespace pavlikeMVC.Areas.AdminPanel.Controllers
 {
+    [Authorize]
+
     public class AuthorsController : Controller
     {
         readonly AuthorRepository _author = new AuthorRepository();
@@ -179,15 +181,7 @@ namespace pavlikeMVC.Areas.AdminPanel.Controllers
             AddErrors(result);
         }
 
-        //public ActionResult Details(int id)
-        //{
-        //    var author = _author.FindbyId(id);
-        //    if (author == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(author);
-        //}
+   
 
     }
 }

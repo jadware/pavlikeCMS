@@ -20,9 +20,9 @@ namespace PavlikeDATA.Repos
             try
             {
                 file.Active = true;
-                _db.SaveChanges();
-                _db.Files.Add(file);
 
+                _db.Files.Add(file);
+                _db.SaveChanges();
                 return Enum.EntityResult.Success;
             }
             catch (Exception)

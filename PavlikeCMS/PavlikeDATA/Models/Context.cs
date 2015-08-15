@@ -15,8 +15,7 @@ namespace PavlikeDATA.Models
         public Context()
                 : base("pavlikeCMS_DBModel")
         {
-     
-
+            ApplicationDbContext.Create();
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -34,7 +33,7 @@ namespace PavlikeDATA.Models
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<Document> Documents { get; set; }
         public virtual DbSet<File> Files { get; set; }
-      
+
         public virtual DbSet<Media> Medias { get; set; }
         public virtual DbSet<Page> Pages { get; set; }
         public virtual DbSet<Seo> Seos { get; set; }

@@ -803,6 +803,7 @@
     <Content Include="Areas\AdminPanel\Views\Authors\Details.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Authors\Edit.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Authors\_SetPassword.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Articles\_createType.cshtml" />
     <None Include="Areas\AdminPanel\Views\Files\Documents.cshtml.old" />
     <Content Include="Areas\AdminPanel\Views\Files\Slider.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Files\SliderCreate.cshtml" />

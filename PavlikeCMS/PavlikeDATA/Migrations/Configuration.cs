@@ -5,7 +5,7 @@ using PavlikeDATA.Models;
 
 namespace PavlikeDATA.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<Context>
+    public class Configuration : DbMigrationsConfiguration<Context>
     {
         public Configuration()
         {
@@ -15,7 +15,7 @@ namespace PavlikeDATA.Migrations
        
         }
 
-         protected override void Seed(Context context)
+        public void Seed(Context context)
         {
             ApplicationDbContext.Create();
             var usercontext = new ApplicationDbContext();
@@ -35,7 +35,8 @@ namespace PavlikeDATA.Migrations
                 UserGuid = user.Id,
                 Name = "SuperUser",
                 EMail = user.Email,
-                DateofBirth = DateTime.Now
+                DateofBirth = DateTime.Now,
+                Active = true
             });
             context.Settings.AddOrUpdate(c => c.Url, new Models.Settings
             {
@@ -52,6 +53,7 @@ namespace PavlikeDATA.Migrations
                 MailServerSsl = false,
                 SliderHeight = 900,
                 SliderWidht = 1440
+                
             });
 
             context.SaveChanges();

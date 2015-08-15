@@ -80,5 +80,47 @@ namespace PavlikeDATA.Repos
             return disableitem == null ? Enum.EntityResult.Failed : Disable(disableitem);
         }
 
+        public List<ArticleType> GetAllTypes()
+        {
+            return _db.ArticleTypes.ToList();
+        }
+
+        public Enum.EntityResult CreateType(ArticleType model)
+        {
+            try
+            {
+                _db.ArticleTypes.Add(model);
+                _db.SaveChanges();
+                return Enum.EntityResult.Success;
+            }
+            catch (Exception e)
+            {
+                return Enum.EntityResult.Failed;
+            }
+        }
+
+        public ArticleType FindTypeById(int id)
+        {
+            return _db.ArticleTypes.SingleOrDefault(c => c.Id == id);
+        }
+
+        public Enum.EntityResult DisableType(int id)
+        {
+            try
+            {
+                var disable = FindTypeById(id);
+                if (disable == null) return Enum.EntityResult.Failed;
+                disable.Active = false;
+                _db.Entry(disable).State = EntityState.Modified;
+                _db.SaveChanges();
+                return Enum.EntityResult.Success;
+            }
+            catch (Exception r)
+            {
+                return Enum.EntityResult.Failed;
+            }
+        }
+
+
     }
 }

@@ -85,10 +85,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201508111325430_Install.cs" />
-    <Compile Include="Migrations\201508111325430_Install.Designer.cs">
-      <DependentUpon>201508111325430_Install.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\AlbumMedia.cs" />
@@ -132,11 +128,6 @@
       <Project>{c6ea8853-f835-4ef5-907b-c40abb5c3960}</Project>
       <Name>pavlikeLibrary</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508111325430_Install.resx">
-      <DependentUpon>201508111325430_Install.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
